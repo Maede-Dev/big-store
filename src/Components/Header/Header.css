@@ -1,0 +1,45 @@
+* {
+    font-family: shabnam !important;
+  }
+  
+  .ant-menu-item .ant-menu-item-icon,
+  .ant-menu-submenu-title .ant-menu-item-icon,
+  .ant-menu-item .anticon,
+  .ant-menu-submenu-title .anticon {
+    margin-left: 3px;
+  }
+  
+  .ant-menu-horizontal .ant-menu-item,
+  .ant-menu-horizontal .ant-menu-submenu-title {
+    align-items: center;
+    align-content: center;
+  }
+  
+  .header-container {
+    font-size: 17px;
+    padding: 15px 10px;
+    background-color: rgb(247, 247, 247);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    max-height: 98px;
+  }
+  
+  .header-cols {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+ 
+  
+  .header-items{
+    color: black !important;
+
+  }
+
+  link {
+    text-decoration: none;
+  }
+
+  

@@ -4,7 +4,6 @@ const ProductList = () => {
     return (
         <div>
             this is productList page
-            
         </div>
     )
 }
