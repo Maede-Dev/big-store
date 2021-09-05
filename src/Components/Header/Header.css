@@ -2,19 +2,6 @@
     font-family: shabnam !important;
   }
   
-  .ant-menu-item .ant-menu-item-icon,
-  .ant-menu-submenu-title .ant-menu-item-icon,
-  .ant-menu-item .anticon,
-  .ant-menu-submenu-title .anticon {
-    margin-left: 3px;
-  }
-  
-  .ant-menu-horizontal .ant-menu-item,
-  .ant-menu-horizontal .ant-menu-submenu-title {
-    align-items: center;
-    align-content: center;
-  }
-  
   .header-container {
     font-size: 17px;
     padding: 15px 10px;

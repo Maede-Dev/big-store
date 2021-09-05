@@ -6,10 +6,7 @@ import React from "react";
 const Header = () => {
 
     return (
-        <Menu
-      mode="horizontal"
-      className="header-container"
-    >
+        <Menu  mode="horizontal" className="header-container">
       <Row justify="space-between" align="middle">
         <Col span={8} className="header-cols">
           <Menu.Item key="home" className="header-items">
@@ -26,7 +23,6 @@ const Header = () => {
         <Col span={10} className="header-cols">
 
           <Menu.Item key="aboutUs" className="header-items">
-           
             <Link to="/aboutUs">درباره ما</Link>
           </Menu.Item>
         </Col>
@@ -35,4 +31,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
