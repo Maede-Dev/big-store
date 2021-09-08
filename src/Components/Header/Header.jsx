@@ -2,7 +2,7 @@ import { Col, Input, Row, Space } from "antd";
 
 import { Link } from "react-router-dom";
 import React from "react";
-import s from "./Header.scss";
+import s from "./Header.module.scss";
 
 const { Search } = Input;
 const Header = () => {
