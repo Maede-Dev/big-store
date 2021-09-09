@@ -1,42 +1,42 @@
 import { Col, Input, Row, Space } from "antd";
 
-import Checkbox from "antd/lib/checkbox/Checkbox";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import React from "react";
-import s from "./Header.module.scss";
+import style from "./Header.module.scss";
 
 const { Search } = Input;
 const Header = () => {
   return (
-    <Row justify="space-between" align="middle" className={s.header_container}>
+    <Row justify="space-between" align="middle" className={style.header_container}>
       {/* style in antd */
       /* <Checkbox>check me! </Checkbox> */}
-      <Col span={3} className={s.header__cols}>
-        <Link to="/">
+      <Col span={3} className={style.header__cols}>
+        <Link href="/">
           <span>HOME</span>
         </Link>
       </Col>
 
-      <Col span={3} className={s.header__cols}>
-        <Link to="/aboutUs">
+      <Col span={3} className={style.header__cols}>
+        <Link href="/aboutUs">
           <span>ABOUT US</span>
         </Link>
       </Col>
 
-      <Col span={3} className={s.header__cols}>
-        <Link to="/productList">
+      <Col span={3} className={style.header__cols}>
+        <Link href="/productList">
           <span>PRODUCT LIST</span>
         </Link>
       </Col>
 
-      <Col span={3} className={s.header__cols}>
-        <Link to="/sale">
+      <Col span={3} className={style.header__cols}>
+        <Link href="/sale">
           <span>SALE</span>
         </Link>
       </Col>
 
       <Col span={4} className="header-logo">
-        <img src="/public/Images/Logo.png" alt="header-logo" />
+        {/* <img src="/public/Images/Logo.png" alt="header-logo" /> */}
+        logo-image
       </Col>
 
       <Col span={4} className="search">
