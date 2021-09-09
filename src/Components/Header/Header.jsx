@@ -1,5 +1,6 @@
 import { Col, Input, Row, Space } from "antd";
 
+import Checkbox from "antd/lib/checkbox/Checkbox";
 import { Link } from "react-router-dom";
 import React from "react";
 import s from "./Header.module.scss";
@@ -8,6 +9,8 @@ const { Search } = Input;
 const Header = () => {
   return (
     <Row justify="space-between" align="middle" className={s.header_container}>
+      {/* style in antd */
+      /* <Checkbox>check me! </Checkbox> */}
       <Col span={3} className={s.header__cols}>
         <Link to="/">
           <span>HOME</span>

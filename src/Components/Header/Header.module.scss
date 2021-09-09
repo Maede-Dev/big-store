@@ -1,9 +1,21 @@
 .search-box {
   width: 200;
 }
+
 .header_container {
-  background-color: blue;
+ //style for container
+ 
+  // style in antd
+  // :global {
+  //   .ant-checkbox-checked .ant-checkbox-inner {
+  //     background-color: red !important;
+  //   }
+  // }
+
+ 
+
   .header__cols {
-    background: red;
+    //style
+
   }
 }
