@@ -6,6 +6,14 @@ import style from "./productList.module.scss";
 const productList = () => {
   const exampleList = [
     {
+      imageAlt: "product1",
+      imageSrc: ["/Images/card1.jpeg"],
+      name: "bag 1",
+      price: 215,
+      colors: ["red", "blue", "black"],
+      id: 2,
+    },
+    {
       imageAlt: "product2",
       imageSrc: ["/Images/card2.jpg"],
       name: "bag 2",
@@ -31,11 +39,19 @@ const productList = () => {
     },
     {
       imageAlt: "product5",
-      imageSrc: ["/Images/card4.jpg"],
+      imageSrc: ["/Images/card5.jpg"],
       name: "bag 5",
       price: 79,
       colors: ["red", "blue", "black"],
       id: 5,
+    },
+    {
+      imageAlt: "product5",
+      imageSrc: ["/Images/card6.jpg"],
+      name: "bag 6",
+      price: 79,
+      colors: ["red", "blue", "black"],
+      id: 6,
     },
   ];
   return (
