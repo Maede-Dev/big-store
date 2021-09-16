@@ -23,7 +23,7 @@ const Header = () => {
       </Col>
 
       <Col span={2} className={style.header_cols}>
-        <Link href="/productList">
+        <Link href="/product-list">
           <span>PRODUCT LIST</span>
         </Link>
       </Col>
