@@ -8,7 +8,7 @@ const CardItem = (props) => {
 
   return (
     <Col xs={24} sm={10} md={7} lg={7} xl={5} className={style.card_container}>
-      <Carousel effect="fade" autoplay>
+      <Carousel effect="fade" autoplay className={style.card_image}>
         {imageSrc.map((node) => (
           <Image
             key={id}
@@ -20,12 +20,18 @@ const CardItem = (props) => {
           />
         ))}
       </Carousel>
-      <Row>
-        <span><h2  className={style.products_name}>{name}</h2></span>
-      </Row>
-      <Row>
-        <span className={style.products_color}>{colors}</span>
-        <span className={style.products_price}>{price}</span>
+      <Row className={style.products_body}>
+        <Col span={24}>
+          <h3 className={style.products_name}>{name}</h3>
+        </Col>
+        <Col span={24}>
+          <span className={style.products_color}>
+            {colors.map((node) => node + " ")}
+          </span>
+        </Col>
+        <Col span={24} style={{ textAlign: "right" }}>
+          <span className={style.products_price}>{price} $</span>
+        </Col>
       </Row>
     </Col>
   );
