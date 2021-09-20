@@ -1,4 +1,5 @@
-import { Carousel, Col, Image } from "antd";
+import { Carousel, Col, Image, Row } from "antd";
+
 import React from "react";
 import style from "./card.module.scss";
 
@@ -19,6 +20,13 @@ const CardItem = (props) => {
           />
         ))}
       </Carousel>
+      <Row>
+        <span><h2  className={style.products_name}>{name}</h2></span>
+      </Row>
+      <Row>
+        <span className={style.products_color}>{colors}</span>
+        <span className={style.products_price}>{price}</span>
+      </Row>
     </Col>
   );
 };
