@@ -26,11 +26,20 @@
     .products_price {
       color: red;
       font-weight: 700;
+      margin-left: 100px;
     }
+  }
+  .colcards{
+    margin-top: 15px;
   }
 
   .add_btn{
 background-color: rgb(67, 63, 70);
+border: 1px solid white;
+  }
+
+  .rate{
+  margin-left: 35px;
   }
 }
 .card_container:hover {
