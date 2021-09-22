@@ -24,9 +24,13 @@
       color: #332e31ad;
     }
     .products_price {
-      color: darkgreen;
+      color: red;
       font-weight: 700;
     }
+  }
+
+  .add_btn{
+background-color: rgb(67, 63, 70);
   }
 }
 .card_container:hover {

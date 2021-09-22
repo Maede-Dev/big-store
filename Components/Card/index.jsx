@@ -1,5 +1,7 @@
+import { Button, Tooltip } from 'antd';
 import { Carousel, Col, Image, Row } from "antd";
 
+import {PlusOutlined} from '@ant-design/icons';
 import React from "react";
 import style from "./card.module.scss";
 
@@ -32,7 +34,11 @@ const CardItem = (props) => {
         <Col span={24} style={{ textAlign: "right" }}>
           <span className={style.products_price}>{price} $</span>
         </Col>
+        <Tooltip title="Add to Shopping Basket" className={style.add_btn}>
+      <Button type='primary' shape='round' icon={<PlusOutlined/>} />
+    </Tooltip>
       </Row>
+    
     </Col>
   );
 };
