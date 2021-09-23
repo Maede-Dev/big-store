@@ -2,14 +2,21 @@ import { Col, Input, Row, Space } from "antd";
 
 import Link from "next/link";
 import React from "react";
+import {SearchOutlined} from '@ant-design/icons';
+import {ShoppingCartOutlined} from '@ant-design/icons';
 import style from "./Header.module.scss";
 
 const { Search } = Input;
 const Header = () => {
   return (
     <Row justify="space-between" align="middle" className={style.header_container}>
-      {/* style in antd */
-      /* <Checkbox>check me! </Checkbox> */}
+       {/* style in antd  */}
+      <Col span={2} className={style.header_cols}>
+        <Link href="/shopping-basket">
+         <ShoppingCartOutlined className={style.shopping_icon} />
+        </Link>
+      </Col>
+
       <Col span={2} className={style.header_cols}>
         <Link href="/">
           <span>HOME</span>
@@ -34,14 +41,16 @@ const Header = () => {
         </Link>
       </Col>
 
-      <Col span={8} className={style.header_logo}>
-        {/* <img src="/public/Images/Logo.png" alt="header-logo" /> */}
-        logo-image
+      <Col span={2} className={style.header_logo}>
+      <Link href="/">
+        <img src="/Images/Logo.png" alt="header-logo" className={style.header_logo} />
+        </Link>
       </Col>
 
       <Col span={8} className="search">
         <Space direction="vertical">
-          <Search placeholder=" search" className="search-box" />
+          <Search placeholder=" search" 
+      size="large" className={style.search_input}  />
         </Space>
       </Col>
     </Row>

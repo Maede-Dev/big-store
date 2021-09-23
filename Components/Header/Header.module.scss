@@ -2,13 +2,39 @@
   background-color: white;
   margin-bottom: 10px;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-  .header_logo {
-    text-align: center;
+
+  :global{
+    .anticon svg {
+      width: 35px;
+      height: 50px;
+      text-align: center;
+      margin-left: 50px;
+    }
   }
-  .header_cols {
+
+  .header_logo {
+    display: flex;
+    position: static;
+    height: 50px;
+    width: 100%;
     cursor: pointer;
   }
-  .header_cols:hover {
-    background-color: rgba(146, 129, 245, 0.918);
+
+  .header_cols {
+    cursor: pointer;
+    font-weight: 700;
   }
+
+  .header_cols:hover {
+    background-color: rgb(241, 43, 43);
+  }
+
+  .search_input{
+    margin-top: 20px;
+    width: 300px;
+    height: 60px;
+    position: static;
+    overflow: visible;
+  }
+
 }
