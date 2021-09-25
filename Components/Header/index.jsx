@@ -2,7 +2,6 @@ import { Col, Input, Row, Space } from "antd";
 
 import Link from "next/link";
 import React from "react";
-import {SearchOutlined} from '@ant-design/icons';
 import {ShoppingCartOutlined} from '@ant-design/icons';
 import style from "./Header.module.scss";
 

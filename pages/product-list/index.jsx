@@ -1,9 +1,9 @@
 import { Col, Image, Row } from "antd";
 
 import CardItem from "../../Components/Card";
+import ProductListSideBar from "../../Components/ProductListSideBar";
 import React from "react";
 import style from "./productList.module.scss";
-import ProductListSideBar from "../../Components/ProductListSideBar";
 
 const productList = () => {
   const exampleList = [
