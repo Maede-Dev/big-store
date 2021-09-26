@@ -10,8 +10,10 @@ const ProductListSideBar = () => {
   return (
     <div className={style.sidebar_container}>
       <Select className={style.select} placeholder="$ price" allowClear>
-        {prices.map((price) => (
-          <Option value={price}>$ {price}</Option>
+        {prices.map((price, index) => (
+          <Option key={index} value={price}>
+            $ {price}
+          </Option>
         ))}
       </Select>
     </div>

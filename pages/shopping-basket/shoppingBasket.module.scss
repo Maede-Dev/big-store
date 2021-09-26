@@ -1,25 +1,27 @@
-
-.DeleteIcon{
+.basket_Container {
+  .DeleteIcon {
     font-size: 1rem;
     color: black;
     font-weight: 700;
-    margin-left:3rem;
+    margin-left: 3rem;
     cursor: pointer;
-}
+  }
 
-.table{
+  .table {
     margin-left: 15px;
-}
+  }
 
-.sideCol{
+  .total_prices {
     text-align: middle;
     margin-left: 50px;
     font-weight: 700;
     font-size: 20px;
     width: 100%;
-    background-color:#fafafa;
-    .search{
-        margin: 20px 10px 0px 10px;
-        width: 350px;
+    background-color: #fafafa;
+    .search {
+      margin: 20px 10px 0px 10px;
+      width: 350px;
     }
+  }
 }
+
