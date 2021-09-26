@@ -1,3 +1,33 @@
 .singleProduct_container{
-     background-color: blue;
+     .divider{
+          height: 100vh;
+     }
+     .header{
+
+        
+          .header_name{
+               font-weight: 700;
+               font-size:50px;
+               cursor: pointer;
+          }
+          .like_container{
+               margin-top: 1.5rem;
+               .like_icon{
+                    font-size: 30px;
+                    direction: rtl !important;
+                    cursor: pointer;
+                    }
+          }
+          
+     }
+     .price{
+          font-weight: 700;
+          font-size:40px;
+     }
+     .review{
+         border-bottom: 1px solid black;
+          margin-left: 20px;
+          font-size: 20px;
+          font-weight: 200;
+     }
 }

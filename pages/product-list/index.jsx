@@ -1,10 +1,10 @@
-import { Col, Image, Row } from "antd";
+import { Col, Row } from "antd";
 
 import CardItem from "../../Components/Card";
-import ProductListSideBar from "../../Components/ProductListSideBar";
+import ExampleList from "../../Components/hardData/productList";
+import ProductListSideBar from "../ProductListSideBar";
 import React from "react";
 import style from "./productList.module.scss";
-import ExampleList from "../../Components/hardData/productList";
 
 const productList = () => {
 
