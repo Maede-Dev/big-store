@@ -1,8 +1,10 @@
 .sidebar_container {
   width: 250px !important;
-  border-right: 1px solid #afafaf;
+  // border-right: 1px solid #afafaf;
+
   height: 100%;
   position: fixed;
+  overflow: hidden;
   .sidebar_header_container {
     margin: 1rem;
     display: flex;
