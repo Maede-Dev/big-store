@@ -14,6 +14,7 @@ const productList = () => {
       price: "215",
       colors: ["red", "blue", "black"],
       id: 2,
+      category: "bag",
     },
     {
       imageAlt: "product2",
@@ -22,6 +23,7 @@ const productList = () => {
       price: "165",
       colors: ["red", "blue", "black"],
       id: 2,
+      category: "bag",
     },
     {
       imageAlt: "product3",
@@ -30,6 +32,7 @@ const productList = () => {
       price: "127",
       colors: ["red", "blue", "black"],
       id: 3,
+      category: "bag",
     },
     {
       imageAlt: "product4",
@@ -38,6 +41,7 @@ const productList = () => {
       price: "100",
       colors: ["red", "blue", "black"],
       id: 4,
+      category: "bag",
     },
     {
       imageAlt: "product5",
@@ -46,6 +50,7 @@ const productList = () => {
       price: "79",
       colors: ["red", "blue", "black"],
       id: 5,
+      category: "bag",
     },
     {
       imageAlt: "product5",
@@ -54,6 +59,7 @@ const productList = () => {
       price: "79",
       colors: ["red", "blue", "black"],
       id: 6,
+      category: "bag",
     },
   ];
   return (
@@ -72,6 +78,7 @@ const productList = () => {
               name={node.name}
               colors={node.colors}
               price={node.price}
+              category={node.category}
             />
           ))}
         </Row>

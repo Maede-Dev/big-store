@@ -1,14 +1,14 @@
-import { Button, Tooltip } from 'antd';
+import { Button, Tooltip } from "antd";
 import { Carousel, Col, Image, Row } from "antd";
+import Link from "next/link";
 
-import {PlusOutlined} from '@ant-design/icons';
-import { Rate } from 'antd';
+import { PlusOutlined } from "@ant-design/icons";
+import { Rate } from "antd";
 import React from "react";
 import style from "./card.module.scss";
 
 const CardItem = (props) => {
-  const { imageAlt, imageSrc, name, price, colors, id } = props;
-  
+  const { imageAlt, imageSrc, name, price, colors, id, category } = props;
 
   return (
     <Col xs={24} sm={10} md={7} lg={7} xl={5} className={style.card_container}>
@@ -25,23 +25,24 @@ const CardItem = (props) => {
         ))}
       </Carousel>
       <Row className={style.products_body}>
-        <Col span={24}>
-          <h3 className={style.products_name}>{name}</h3>
-        </Col>
-        <Col span={24} className={style.colcards} >
+        <Link href={`/${category}/${id}`}>
+          <Col span={24}>
+            <h3 className={style.products_name}>{name}</h3>
+          </Col>
+        </Link>
+        <Col span={24} className={style.colcards}>
           <span className={style.products_color}>
             {colors.map((node) => node + " ")}
           </span>
           <span className={style.products_price}>$ {price}</span>
         </Col>
-        <Col span={24} className={style.colcards}> 
-        <Tooltip title="Add to Shopping Basket" className={style.add_btn}>
-      <Button type='primary' shape='round' icon={<PlusOutlined/>}/>
-    </Tooltip>
-    <Rate className={style.rate}   />
-    </Col>
+        <Col span={24} className={style.colcards}>
+          <Tooltip title="Add to Shopping Basket" className={style.add_btn}>
+            <Button type="primary" shape="round" icon={<PlusOutlined />} />
+          </Tooltip>
+          {/* <Rate className={style.rate}   /> */}
+        </Col>
       </Row>
-    
     </Col>
   );
 };
