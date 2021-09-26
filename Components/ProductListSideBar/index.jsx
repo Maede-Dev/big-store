@@ -1,5 +1,6 @@
 import React from "react";
-import { Select } from "antd";
+import { Col, Row, Select } from "antd";
+import { FilterOutlined } from "@ant-design/icons";
 import style from "./style.module.scss";
 
 const { Option } = Select;
@@ -9,13 +10,28 @@ const ProductListSideBar = () => {
 
   return (
     <div className={style.sidebar_container}>
-      <Select className={style.select} placeholder="$ price" allowClear>
-        {prices.map((price, index) => (
-          <Option key={index} value={price}>
-            $ {price}
-          </Option>
-        ))}
-      </Select>
+      <Row justify="center" align="middle">
+        <Col span={8} className={style.sidebar_header_container}>
+          <FilterOutlined />
+          <span className={style.sidebar_header}>Filters</span>
+        </Col>
+        <Col span={21}>
+          <Select
+            size="middle"
+            mode="multiple"
+            maxTagCount="responsive"
+            className={style.select}
+            placeholder="$ price"
+            allowClear
+          >
+            {prices.map((price, index) => (
+              <Option key={index} value={price}>
+                $ {price}
+              </Option>
+            ))}
+          </Select>
+        </Col>
+      </Row>
     </div>
   );
 };

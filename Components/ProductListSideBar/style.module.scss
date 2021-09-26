@@ -1,19 +1,30 @@
 .sidebar_container {
   width: 250px !important;
-
-  .select{
-   text-align: middle;
- margin-left: 50px;
-    font-weight: 700;
+  border-right: 1px solid #afafaf;
+  height: 100%;
+  position: fixed;
+  .sidebar_header_container {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
     font-size: 20px;
+    color: #afafaf;
+    align-items: center;
+    .sidebar_header {
+      font-size: 20px;
+      font-weight: 600;
+      margin-left: 5px;
+    }
+  }
+
+  .select {
     width: 100%;
   }
 
-  :global{
-  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
-    border-radius: 9px;
-    text-align: center;
-    
+  :global {
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+      border-radius: 9px;
+      text-align: center;
+    }
   }
-}
 }
