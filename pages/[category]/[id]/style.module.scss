@@ -1,7 +1,46 @@
 .singleProduct_container{
+     //leftSidebar style 
+     .mainImg{
+   margin-top: 5%;
+   cursor: pointer;
+     }
+
+     .othersImg{
+          margin-top: 10%;
+          cursor: pointer;
+          .bagEx1{
+               width:"80px";
+              height:"70px";
+          }
+          .bagEx2{
+               margin-top: 10px;
+               width:"80px";
+              height:"70px";
+          }
+          .bagEx3{
+               margin-top: 10px;
+               width:"80px";
+               height:"70px";
+          }
+          .bagEx4{
+               margin-top: 10px;
+               width:"80px";
+               height:"70px";
+          }
+     }
+
+     .recently{
+          margin-top: 50px;
+          font-size: 18px;
+          font-weight: 500;
+     }
+
+   
+
      .divider{
           height: 100vh;
      }
+     //rightSidebar style
      .header{
 
         

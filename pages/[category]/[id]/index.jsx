@@ -13,10 +13,46 @@ const SingleProduct = () => {
 
   return (
     <Row className={style.singleProduct_container} justify="space-around">
+      {/* LeftSidebar */}
       <Col span={10}>
-        <Image src="/Images/card1.jpeg" width="100%" height="100%"></Image>
+        <Row>
+          <Col span={20}>
+            <Image
+              src="/Images/card1.jpeg"
+              preview={false}
+              width="500px"
+              height="400px"
+              className={style.mainImg}
+            />
+          </Col>
+          <Col span={4} className={style.othersImg}>
+            <Image
+              src="/Images/card1.jpeg"
+              preview={false}
+              className={style.bagEx1}
+            />
+            <Image
+              src="/Images/card1.jpeg"
+              preview={false}
+              className={style.bagEx2}
+            />
+            <Image
+              src="/Images/card1.jpeg"
+              preview={false}
+              className={style.bagEx3}
+            />
+            <Image
+              src="/Images/card1.jpeg"
+              preview={false}
+              className={style.bagEx4}
+            />
+          </Col>
+        </Row>
+        <h1 className={style.recently}>Recently viewed</h1>
       </Col>
+
       <Divider type="vertical" className={style.divider} />
+      {/* RightSidebar */}
       <Col span={10}>
         <Row className={style.header}>
           <Col span={20}>
