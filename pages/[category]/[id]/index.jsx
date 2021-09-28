@@ -10,6 +10,7 @@ import { useRouter } from "next/dist/client/router";
 const SingleProduct = () => {
   const router = useRouter();
   console.log(router.query);
+
   return (
     <Row className={style.singleProduct_container} justify="space-around">
       <Col span={10}>
@@ -25,18 +26,35 @@ const SingleProduct = () => {
             <HeartOutlined className={style.like_icon} />
           </Col>
         </Row>
-     <Row>
-     <p>
-     Classic Double Flap Bag Quilted Caviar Medium
-     </p>
-     </Row>
-     <Row>
-     <h1 className={style.price}>$ 736.99</h1>
-     </Row>
-     <Row>
-      <Rate  allowHalf allowClear/>
-      <span className={style.review} >785 reviews</span>
-     </Row>
+        <p>Classic Double Flap Bag Quilted Caviar Medium</p>
+        <h1 className={style.price}>$ 736.99</h1>
+        <Row>
+          <Rate allowHalf allowClear />
+          <span className={style.review}>785 reviews</span>
+        </Row>
+        <span className={style.color_name}>Colour</span>
+        <div className={style.color_container}>
+          <Image
+            src="/Images/color1.png"
+            alt="browncolor"
+            preview={false}
+            className={style.color1}
+          />
+          <Image
+            src="/Images/color2.png"
+            alt="honeybrowncolor"
+            preview={false}
+            className={style.color2}
+          />
+          <Image
+            src="/Images/color3.png"
+            alt="blackcolor"
+            preview={false}
+            className={style.color3}
+          />
+        </div>
+
+        <button className={style.add_button}>Add to basket</button>
       </Col>
     </Row>
   );

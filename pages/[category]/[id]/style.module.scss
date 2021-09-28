@@ -20,14 +20,54 @@
           }
           
      }
+
      .price{
           font-weight: 700;
           font-size:40px;
      }
+
      .review{
          border-bottom: 1px solid black;
           margin-left: 20px;
           font-size: 20px;
           font-weight: 200;
+          margin-bottom: 20px;
+     }
+
+     .color_name{
+          font-size: 25px;
+          font-weight: 600;
+     }
+
+     .color_container{
+          display: flex;
+          cursor: pointer;
+          margin-top: 10px;
+          .color1{
+               width: 40px !important;
+          }
+          .color2{
+               margin-left: 32px;
+               width: 43px !important;
+          }
+          .color3{
+               margin-left: 32px;
+               width: 45px !important;
+          }
+     }
+
+     .add_button{
+          margin-top: 10%;
+          margin-left: 20%;
+          border: 1px solid red;
+          border-radius: 8px;
+          align-items: center;
+          text-align: center;
+          width: 50%;
+          height: 70px;
+          background-color: #d82322;
+          color: #c5c7c9;
+          font-size: 30px;
+          cursor: pointer;
      }
 }
