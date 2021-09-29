@@ -4,8 +4,7 @@
       border-radius: 28px 28px 0 0;
     }
   }
-
-  
+  cursor: pointer;
   margin: 1rem 0;
   background-color: white;
   border-radius: 28px;
@@ -29,18 +28,18 @@
       margin-left: 100px;
     }
   }
-  .colcards{
+  .colcards {
     margin-top: 15px;
   }
 
-  .add_btn{
+  .add_btn {
     color: #c5c7c9;
-background-color: #d82322;
-border: 1px solid #d82322;
+    background-color: #d82322;
+    border: 1px solid #d82322;
   }
 
-  .rate{
-  margin-left: 35px;
+  .rate {
+    margin-left: 35px;
   }
 }
 .card_container:hover {

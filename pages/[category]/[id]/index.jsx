@@ -1,10 +1,10 @@
 import { Col, Image, Row } from "antd";
+import React, { useEffect, useState } from "react";
 
 import { Divider } from "antd";
 import ExampleList from "/Components/hardData/productList";
 import { HeartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
-import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import { useRouter } from "next/dist/client/router";
 
@@ -17,17 +17,6 @@ const SingleProduct = () => {
   });
   console.log("exampleFound>>>", exampleFound);
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
-  // function getData() {
-  //   const exampleFound = ExampleList.find(function (node, index) {
-  //     if (node.id == router.query.id) return node;
-  //   });
-  //   setItemData(exampleFound);
-  // }
-
   return (
     <Row className={style.singleProduct_container} justify="space-around">
       {/* LeftSidebar */}
@@ -38,7 +27,7 @@ const SingleProduct = () => {
               src="/Images/card1.jpeg"
               preview={false}
               width="500px"
-              height="400px"
+              height="500px"
               className={style.mainImg}
               alt="card1"
             />
@@ -52,30 +41,14 @@ const SingleProduct = () => {
             xxl={8}
             className={style.othersImg}
           >
-            <Image
-              src="/Images/card1.jpeg"
-              preview={false}
-              className={style.bagEx1}
-              alt="card2"
-            />
-            <Image
-              src="/Images/card1.jpeg"
-              preview={false}
-              className={style.bagEx2}
-              alt="card3"
-            />
-            <Image
-              src="/Images/card1.jpeg"
-              preview={false}
-              className={style.bagEx3}
-              alt="card4"
-            />
-            <Image
-              src="/Images/card1.jpeg"
-              preview={false}
-              className={style.bagEx4}
-              alt="card5"
-            />
+            {exampleFound?.imageSrc.map((node) =>
+             <Image
+             src={node}
+             preview={false}
+             className={style.bagEx}
+             alt="card2"
+           />
+            )}
           </Col>
         </Row>
         <h1 className={style.recently}>Recently viewed</h1>
@@ -92,11 +65,11 @@ const SingleProduct = () => {
             <HeartOutlined className={style.like_icon} />
           </Col>
         </Row>
-        <p>Classic Double Flap Bag Quilted Caviar Medium</p>
-        <h1 className={style.price}>$ 736.99</h1>
+        <p>{exampleFound?.description}</p>
+        <h1 className={style.price}>$ {exampleFound?.price}</h1>
         <Row>
-          <Rate allowHalf allowClear />
-          <span className={style.review}>785 reviews</span>
+          <Rate allowHalf allowClear disabled value={4.5}/>
+          <span className={style.review}>{exampleFound?.reviews}</span>
         </Row>
         <span className={style.color_name}>Colour</span>
         <div className={style.color_container}>

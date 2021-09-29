@@ -6,26 +6,11 @@
      }
 
      .othersImg{
-          margin-top: 10%;
+          margin-top: 5%;
           cursor: pointer;
-          .bagEx1{
-               width:"80px";
-              height:"70px";
-          }
-          .bagEx2{
-               margin-top: 10px;
-               width:"80px";
-              height:"70px";
-          }
-          .bagEx3{
-               margin-top: 10px;
-               width:"80px";
-               height:"70px";
-          }
-          .bagEx4{
-               margin-top: 10px;
-               width:"80px";
-               height:"70px";
+          .bagEx{
+               width:"60%";
+              height:"60%";
           }
      }
 
@@ -72,6 +57,7 @@
           font-weight: 200;
           margin-bottom: 20px;
      }
+
 
      .color_name{
           font-size: 25px;
