@@ -21,7 +21,7 @@ const ProductListSideBar = () => {
             mode="multiple"
             maxTagCount="responsive"
             className={style.select}
-            placeholder="$ price"
+            placeholder="$ Price"
             allowClear
           >
             {prices.map((price, index) => (
