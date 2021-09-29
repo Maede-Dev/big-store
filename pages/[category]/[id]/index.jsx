@@ -4,13 +4,29 @@ import { Divider } from "antd";
 import ExampleList from "/Components/hardData/productList";
 import { HeartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import { useRouter } from "next/dist/client/router";
 
 const SingleProduct = () => {
   const router = useRouter();
-  console.log(router.query);
+  console.log(router.query.id);
+
+  const exampleFound = ExampleList.find(function (node, index) {
+    if (node.id == router.query.id) return node;
+  });
+  console.log("exampleFound>>>", exampleFound);
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // function getData() {
+  //   const exampleFound = ExampleList.find(function (node, index) {
+  //     if (node.id == router.query.id) return node;
+  //   });
+  //   setItemData(exampleFound);
+  // }
 
   return (
     <Row className={style.singleProduct_container} justify="space-around">
@@ -24,28 +40,41 @@ const SingleProduct = () => {
               width="500px"
               height="400px"
               className={style.mainImg}
+              alt="card1"
             />
           </Col>
-          <Col  xs={24} sm={24} md={7} lg={8} xl={4} xxl={8} className={style.othersImg}>
+          <Col
+            xs={24}
+            sm={24}
+            md={7}
+            lg={8}
+            xl={4}
+            xxl={8}
+            className={style.othersImg}
+          >
             <Image
               src="/Images/card1.jpeg"
               preview={false}
               className={style.bagEx1}
+              alt="card2"
             />
             <Image
               src="/Images/card1.jpeg"
               preview={false}
               className={style.bagEx2}
+              alt="card3"
             />
             <Image
               src="/Images/card1.jpeg"
               preview={false}
               className={style.bagEx3}
+              alt="card4"
             />
             <Image
               src="/Images/card1.jpeg"
               preview={false}
               className={style.bagEx4}
+              alt="card5"
             />
           </Col>
         </Row>
@@ -57,7 +86,7 @@ const SingleProduct = () => {
       <Col span={10}>
         <Row className={style.header}>
           <Col span={20}>
-            <h1 className={style.header_name}> bag1</h1>
+            <h1 className={style.header_name}>{exampleFound?.name}</h1>
           </Col>
           <Col span={4} className={style.like_container}>
             <HeartOutlined className={style.like_icon} />
