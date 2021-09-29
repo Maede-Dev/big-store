@@ -1,6 +1,7 @@
 import { Col, Image, Row } from "antd";
 
 import { Divider } from "antd";
+import ExampleList from "/Components/hardData/productList";
 import { HeartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
 import React from "react";
@@ -25,7 +26,7 @@ const SingleProduct = () => {
               className={style.mainImg}
             />
           </Col>
-          <Col span={4} className={style.othersImg}>
+          <Col  xs={24} sm={24} md={7} lg={8} xl={4} xxl={8} className={style.othersImg}>
             <Image
               src="/Images/card1.jpeg"
               preview={false}

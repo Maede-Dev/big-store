@@ -1,19 +1,22 @@
 .sidebar_container {
-  width: 250px !important;
+  width: 211px !important;
   // border-right: 1px solid #afafaf;
 
   height: 100%;
   position: fixed;
   overflow: hidden;
   .sidebar_header_container {
-    margin: 1rem;
+    margin-top: 1rem;
+    margin-left: -40px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
-    font-size: 20px;
-    color: #afafaf;
+    font-size: 30px;
+    color: #888787;
     align-items: center;
+
     .sidebar_header {
-      font-size: 20px;
+      font-size: 30px;
       font-weight: 600;
       margin-left: 5px;
     }
@@ -21,6 +24,9 @@
 
   .select {
     width: 100%;
+
+    font-size: 20px;
+    font-weight: 500;
   }
 
   :global {
