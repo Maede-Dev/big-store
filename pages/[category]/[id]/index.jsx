@@ -41,14 +41,15 @@ const SingleProduct = () => {
             xxl={8}
             className={style.othersImg}
           >
-            {exampleFound?.imageSrc.map((node) =>
-             <Image
-             src={node}
-             preview={false}
-             className={style.bagEx}
-             alt="card2"
-           />
-            )}
+            {exampleFound?.imageSrc.map((node, index) => (
+              <Image
+                key={index}
+                src={node}
+                preview={false}
+                className={style.bagEx}
+                alt="card2"
+              />
+            ))}
           </Col>
         </Row>
         <h1 className={style.recently}>Recently viewed</h1>
@@ -68,7 +69,7 @@ const SingleProduct = () => {
         <p>{exampleFound?.description}</p>
         <h1 className={style.price}>$ {exampleFound?.price}</h1>
         <Row>
-          <Rate allowHalf allowClear disabled value={4.5}/>
+          <Rate allowHalf allowClear disabled value={4.5} />
           <span className={style.review}>{exampleFound?.reviews}</span>
         </Row>
         <span className={style.color_name}>Colour</span>
