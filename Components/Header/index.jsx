@@ -2,7 +2,6 @@ import { Col, Input, Row, Space } from "antd";
 
 import Link from "next/link";
 import React from "react";
-import { SearchOutlined } from "@ant-design/icons";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import style from "./Header.module.scss";
 
@@ -47,11 +46,15 @@ const Header = () => {
 
       <Col span={6} className={style.header_logo}>
         <Link href="/">
-          <img src="/Images/Logo.png" alt="header-logo" className={style.header_logo}/>
+          <img
+            src="/Images/Logo.png"
+            alt="header-logo"
+            className={style.header_logo}
+          />
         </Link>
       </Col>
 
-      <Col span={8} className="search">
+      <Col span={6} className="search">
         <Space direction="vertical">
           <Search
             placeholder=" search"
@@ -59,6 +62,12 @@ const Header = () => {
             className={style.search_input}
           />
         </Space>
+      </Col>
+
+      <Col span={2} className={style.header_cols}>
+        <Link href="/login">
+          <span>Login</span>
+        </Link>
       </Col>
     </Row>
   );
