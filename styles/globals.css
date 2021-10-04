@@ -1,0 +1,124 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Oswald Oswald-medium Oswald-bold !important;
+}
+
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/Oswald-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald-medium";
+  src: url("/fonts/Oswald-Medium.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald-bold";
+  src: url("/fonts/Oswald-Bold.ttf");
+  font-style: bold;
+  font-weight: 600;
+  font-display: swap;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.mt-1{
+  margin-top: 5px;
+}
+.mt-2{
+  margin-top: 10px;
+}
+.mt-3{
+  margin-top: 15px;
+}
+.mt-4{
+  margin-top: 20px;
+}
+.mt-5{
+  margin-top: 25px;
+}
+
+
+.mr-1{
+  margin-right: 5px;
+}
+.mr-2{
+  margin-right: 10px;
+}
+.mr-3{
+  margin-right: 15px;
+}
+.mr-4{
+  margin-right: 20px;
+}
+.mr-5{
+  margin-right: 25px;
+}
+.mb-1{
+  margin-bottom: 5px;
+}
+.mb-2{
+  margin-bottom: 10px;
+}
+.mb-3{
+  margin-bottom: 15px;
+}
+.mb-4{
+  margin-bottom: 20px;
+}
+.mb-5{
+  margin-bottom: 25px;
+}
+.ml-1{
+  margin-left: 5px;
+}
+.ml-2{
+  margin-left: 10px;
+}
+.ml-3{
+  margin-left: 15px;
+}
+.ml-4{
+  margin-left: 20px;
+}
+.ml-5{
+  margin-left: 25px;
+}

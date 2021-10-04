@@ -1,0 +1,41 @@
+.login_Container{
+   align-items: center;
+   margin-left: 35%;
+   width: 30%;
+   height: 50%;
+   padding: 20px;
+   border:1px solid #ced2d4;
+   border-radius:5px ;
+   margin-bottom: 30px;
+   margin-top: 30px;
+   :global{
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn  {
+    color: #d30606;
+    font-size: 20px;
+    font-weight: 500;
+    }
+  }
+
+   .login_input{
+       width: 400px;
+       border-color: #a4a4a4;
+   }
+
+   .login_title{
+       font-weight: 600;
+   }
+
+   .login_btn{
+       border-radius: 5px;
+       margin-top: 3%;
+       margin-left: 24%;
+       width: 200px;
+       font-weight: 700;
+       font-size: 20px;
+      height: 48px;
+      background: #d30606;
+      background-color: #d30606;
+      border-color: #d30606;
+      color: whitesmoke;
+   }
+}

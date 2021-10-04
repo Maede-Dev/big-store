@@ -1,0 +1,47 @@
+.card_container {
+  :global {
+    .slick-list {
+      border-radius: 28px 28px 0 0;
+    }
+  }
+  cursor: pointer;
+  margin: 1rem 0;
+  background-color: white;
+  border-radius: 28px;
+  box-shadow: rgba(0, 0, 0, 0.103) 2px 4px 8px;
+
+  .card_image {
+    border-radius: 28px 28px 0 0;
+  }
+  .products_body {
+    padding: 10px;
+    cursor: pointer;
+    .products_name {
+      font-weight: 700;
+    }
+    .products_color {
+      color: #332e31ad;
+    }
+    .products_price {
+      color: rgb(18, 141, 14);
+      font-weight: 700;
+      margin-left: 100px;
+    }
+  }
+  .colcards {
+    margin-top: 15px;
+  }
+
+  .add_btn {
+    color: #c5c7c9;
+    background-color: #d82322;
+    border: 1px solid #d82322;
+  }
+
+  .rate {
+    margin-left: 35px;
+  }
+}
+.card_container:hover {
+  box-shadow: rgba(0, 0, 0, 0.452) 0px 5px 15px;
+}
