@@ -6,7 +6,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 
-import React from "react";
+import React from "react"; 
 import style from "./login.module.scss";
 
 const { TabPane } = Tabs;
