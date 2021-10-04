@@ -26,7 +26,7 @@ const Login = () => {
             className={style.login_input}
             size="middle"
             placeholder="Email / Phone number / Username"
-            prefix={<UserOutlined />}
+            prefix={<UserOutlined />} 
           />
           <br />
           <br />
