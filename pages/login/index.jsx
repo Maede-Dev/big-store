@@ -65,7 +65,7 @@ const Login = () => {
           />
           <br />
           <span>
-            <ExclamationOutlined />
+            <ExclamationOutlined style={{color:"#d30606"}} />
             Passwords must be at least 6 characters.
           </span>
           <br />
