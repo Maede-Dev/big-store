@@ -1,12 +1,14 @@
-import React from "react";
-import style from "./login.module.scss";
+import { Button, Input, Space, Tabs } from "antd";
 import {
-  UserOutlined,
+  ExclamationOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
-  ExclamationOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
-import { Input, Space, Button, Tabs } from "antd";
+
+import React from "react";
+import style from "./login.module.scss";
+
 const { TabPane } = Tabs;
 
 function callback(key) {
