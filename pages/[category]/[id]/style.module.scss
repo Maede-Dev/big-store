@@ -1,98 +1,145 @@
-.singleProduct_container{
-     //leftSidebar style 
-     .mainImg{
-   margin-top: 5%;
-   cursor: pointer;
-     }
+.singleProduct_container {
+  margin-top: 30px;
+  //leftSidebstyle
+  .left_side {
+    display: flex;
+    justify-content: space-around;
+    .main_image_box {
+      cursor: pointer;
+      border-radius: 4px;
+      .main_image {
+        border-radius: 4px;
+      }
+    }
+    .othersImg {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      :global {
+        .ant-image {
+          margin: 10px 0;
+        }
+      }
+    }
+  }
 
-     .othersImg{
-          margin-top: 5%;
-          cursor: pointer;
-          .bagEx{
-               width:"60%";
-              height:"60%";
-          }
-     }
+  .divider_box {
+    text-align: center;
+    :global {
+      .ant-divider-vertical {
+        border-left: 3px solid rgba(0, 0, 0, 0.06) !important;
+      }
+    }
+    .divider {
+      height: 100%;
+      color: rgb(92, 92, 92);
+      padding: 0 3px;
+    }
+  }
+  .recently {
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 500;
+  }
 
-     .recently{
-          margin-top: 50px;
-          font-size: 18px;
-          font-weight: 500;
-     }
+  //rightSidebar style
+  .right_side {
+    padding: 0 10px;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      .header_name {
+        font-weight: 700;
+        font-size: 40px;
+        cursor: pointer;
+      }
+      .like_icon {
+        font-size: 30px;
+        direction: rtl !important;
+        cursor: pointer;
+      }
+    }
 
-   
+    .price {
+      font-weight: 700;
+      font-size: 45px;
+    }
+    .product_description {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 30px;
+    }
+    .review {
+      border-bottom: 1px solid black;
+      margin-left: 20px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
 
-     .divider{
-          height: 100vh;
-     }
-     //rightSidebar style
-     .header{
+    .color_name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
 
-        
-          .header_name{
-               font-weight: 700;
-               font-size:50px;
-               cursor: pointer;
-          }
-          .like_container{
-               margin-top: 1.5rem;
-               .like_icon{
-                    font-size: 30px;
-                    direction: rtl !important;
-                    cursor: pointer;
-                    }
-          }
-          
-     }
+    .color_container {
+      width: 40%;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      .color {
+        margin-right: 30px;
+        border-radius: 50px;
+        width: 35px;
+        height: 35px;
+      }
+    }
 
-     .price{
-          font-weight: 700;
-          font-size:40px;
-     }
+    .add_button {
+      margin-top: 10%;
+      margin-left: 20%;
+      border: 1px solid #d82322;
+      border-radius: 8px;
+      align-items: center;
+      text-align: center;
+      width: 50%;
+      height: 70px;
+      background-color: #d82322;
+      color: #c5c7c9;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  }
+}
+//tablet
+@media (max-width: 1000px) {
+  .divider_box {
+    display: none !important;
+  }
+}
 
-     .review{
-         border-bottom: 1px solid black;
-          margin-left: 20px;
-          font-size: 20px;
-          font-weight: 200;
-          margin-bottom: 20px;
-     }
+// mobile
+@media (max-width: 600px) {
+  .singleProduct_container {
+    margin-top: unset !important;
+  }
+  .left_side {
+    margin-bottom: 30px !important;
+    flex-direction: column !important;
+    .othersImg {
+      flex-direction: row !important;
+      :global {
+        .ant-image {
+          margin: 0 10px !important;
+        }
+      }
+    }
+  }
 
-
-     .color_name{
-          font-size: 25px;
-          font-weight: 600;
-     }
-
-     .color_container{
-          display: flex;
-          cursor: pointer;
-          margin-top: 10px;
-          .color1{
-               width: 40px !important;
-          }
-          .color2{
-               margin-left: 32px;
-               width: 43px !important;
-          }
-          .color3{
-               margin-left: 32px;
-               width: 45px !important;
-          }
-     }
-
-     .add_button{
-          margin-top: 10%;
-          margin-left: 20%;
-          border: 1px solid #d82322;
-          border-radius: 8px;
-          align-items: center;
-          text-align: center;
-          width: 50%;
-          height: 70px;
-          background-color: #d82322;
-          color: #c5c7c9;
-          font-size: 30px;
-          cursor: pointer;
-     }
+  .right_side {
+    padding: unset !important;
+  }
 }
