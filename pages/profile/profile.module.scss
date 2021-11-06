@@ -1,0 +1,30 @@
+.profile_Container{
+    align-items: center;
+    margin: 5%;
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+    border:1px solid #ced2d4;
+    border-radius:5px ;
+    :global{
+    .ant-tabs-tab-btn{
+        color: #d30606;
+    font-size: 20px;
+    font-weight: 500;
+    }
+}
+.lastname_profile{
+    margin-left: 2%;
+}
+.input_profile{
+    margin-top: 5%;
+}
+
+h4{
+    font-weight: 600;
+    font-size:20px;
+    color: #000000c7;
+}
+
+
+}

@@ -11,31 +11,31 @@
       margin-left: 50px;
     }
   }
-
-  .header_logo {
-    display: flex;
-    position: static;
-    height: 40px;
-    width: 50%;
-    cursor: pointer;
-    text-align: center;
-  }
-
   .header_cols {
-    cursor: pointer;
+    cursor: pointer !important;
     font-weight: 700;
-  }
+    .header_logo {
+      display: flex;
+      position: static;
+      height: 40px;
+      width: 50%;
+      cursor: pointer;
+      text-align: center;
+    }
 
+    .search_input{
+      margin-top: 20px;
+      width: 300px;
+      height: 60px;
+      position: static;
+      overflow: visible;
+    }
+  }
+ 
   .header_cols:hover {
     background-color: rgb(241, 43, 43);
   }
 
-  .search_input{
-    margin-top: 20px;
-    width: 300px;
-    height: 60px;
-    position: static;
-    overflow: visible;
-  }
+
 
 }
