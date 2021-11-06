@@ -1,12 +1,13 @@
 import { Col, Image, Row, Space } from "antd";
-import React, { useEffect, useState } from "react";
-import withSizes from "react-sizes";
+import React, { useState } from "react";
+
 import { Divider } from "antd";
 import ExampleList from "/Components/hardData/productList";
-import { HeartOutlined } from "@ant-design/icons";
+import { PlusCircleOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
 import style from "./style.module.scss";
 import { useRouter } from "next/dist/client/router";
+import withSizes from "react-sizes";
 
 const SingleProduct = (props) => {
   const { isMobile } = props;
@@ -73,7 +74,7 @@ const SingleProduct = (props) => {
       >
         <Space size="middle" className={style.header}>
           <h1 className={style.header_name}>{exampleFound?.name}</h1>
-          <HeartOutlined className={style.like_icon} />
+          <PlusCircleOutlined  className={style.addToBasket_icon} />
         </Space>
         <div className={style.product_description}>
           {exampleFound?.description}
@@ -97,8 +98,6 @@ const SingleProduct = (props) => {
               src={color.src}
               alt={color.alt}
               preview={false}
-              width={35}
-              height={35}
               className={style.color}
             />
           ))}
@@ -112,7 +111,7 @@ const SingleProduct = (props) => {
 
 const mapSizesToProps = ({ width }) => ({
   isMobile: width < 600,
-  isTablet: width < 1000,
+  isTablet: width < 1000 && width > 601,
 });
 
 export default withSizes(mapSizesToProps)(SingleProduct);
