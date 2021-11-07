@@ -48,7 +48,7 @@ const Header = (props) => {
             </Link>
           </Col>
 
-          <Col span={6} className={style.header_cols}>
+          <Col span={4} className={style.header_cols}>
             <Link href="/">
               <img
                 src="/Images/Logo.png"
@@ -58,7 +58,7 @@ const Header = (props) => {
             </Link>
           </Col>
 
-          <Col span={6} className={style.header_cols}>
+          <Col span={4} className={style.header_cols}>
             <Space direction="vertical">
               <Search
                 placeholder=" search"
@@ -70,7 +70,12 @@ const Header = (props) => {
 
           <Col span={2} className={style.header_cols}>
             <Link href="/login">
-              <span>Login</span>
+              <span>Login/sign in</span>
+            </Link>
+          </Col>
+          <Col span={2} className={style.header_cols}>
+            <Link href="/profile">
+              <span>My profile</span>
             </Link>
           </Col>
         </Row>
