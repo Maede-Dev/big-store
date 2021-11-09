@@ -16,16 +16,47 @@ import {
   UserOutlined,
   WomanOutlined,
 } from "@ant-design/icons";
+import React, { useEffect, useRef, useState } from "react";
 
-import React from "react";
 import moment from "moment";
 import style from "./profile.module.scss";
 
 const dateFormat = "YYYY/MM/DD";
 const { TabPane } = Tabs;
 const Profile = () => {
+  // inintial value is the back-end data after signIn
+  const initialValue = {
+    firstName: "Maede",
+    lastName: "karimi",
+    phoneNumber: "09012589632",
+    email: "",
+    gender: "",
+    birthDate: "",
+  };
+  const [formRef] = Form.useForm();
+  const [profileInformation, setProfileInformation] = useState(initialValue);
+
+  useEffect(() => {
+    handleSetFields();
+  }, [profileInformation]);
+
+  const handleSetFields = () => {
+    formRef.setFieldsValue({
+      firstName: profileInformation.firstName,
+      lastName: profileInformation.lastName,
+      phoneNumber: profileInformation.phoneNumber,
+      email: profileInformation.email,
+      gender: profileInformation.gender,
+      birthDate: "",
+    });
+  };
+
   const onFinish = (values) => {
-    console.log(values);
+    if (confirm("are you sure about changes ?")) {
+      setProfileInformation(values);
+    } else {
+      handleSetFields();
+    }
   };
 
   const validateMessages = {
@@ -41,28 +72,32 @@ const Profile = () => {
 
   return (
     <div className={style.profile_Container}>
-      <Tabs tabPosition={"left"}>
+      <Tabs tabPosition={"left"} defaultActiveKey={1}>
         <TabPane tab="Profile" key="1">
           <Row>
             <Col span={6}>
               <h4 className={style.h4profile}>
                 <UserOutlined /> Name and LastName:
               </h4>
-              <span>Maede Karimi</span>
+              <span>
+                {`${profileInformation.firstName || "not found"} ${
+                  profileInformation.lastName || "not found"
+                }`}
+              </span>
             </Col>
             <Col span={6}>
               <h4 className={style.h4profile}>
                 <WomanOutlined />
                 Gender:
               </h4>
-              <span>Female</span>
+              <span>{profileInformation?.gender || "not found"}</span>
             </Col>
           </Row>
           <Col span={6}>
             <h4 className={style.h4profile}>
               <GoogleOutlined /> Email Adress:
             </h4>
-            <span>maedekarimi69110@gmail.com</span>
+            <span>{profileInformation.email || "not found"}</span>
           </Col>
 
           <Col span={6}>
@@ -70,18 +105,19 @@ const Profile = () => {
               <PhoneOutlined />
               Phone Number:
             </h4>
-            <span>03963928001</span>
+            <span>{profileInformation.phoneNumber || "not found"}</span>
           </Col>
 
           <Col span={6}>
             <h4 className={style.h4profile}>
               <CalendarOutlined /> Birth Date:
             </h4>
-            <span>1998/07/04</span>
+            <span>{profileInformation.birthDate || "not forund"}</span>
           </Col>
         </TabPane>
         <TabPane tab="Edite Profile" key="2">
           <Form
+            form={formRef}
             name="nest-messages"
             onFinish={onFinish}
             validateMessages={validateMessages}
