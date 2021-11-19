@@ -1,0 +1,45 @@
+.home_top {
+  background-image: url("/Images/home_top_2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  height: 90vh;
+  margin-bottom: 30px;
+  .glass_box {
+    display: flex;
+    align-items: center;
+    .glass {
+      width: 100%;
+      padding: 20px 10px;
+      text-align: center;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0px 0px 2000px 10px rgba(255, 255, 255);
+      position: relative;
+      background: inherit;
+      overflow: hidden;
+      .top_h {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 15px 0 20px 0;
+      }
+      .top_models_number {
+        font-size: 22px;
+        line-height: 25px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .top_text {
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+// mobiles style
+@media (max-width: 600px) {
+}

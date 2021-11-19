@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Header />
-      <div style={{ minHeight: "45vh" }}>
+      <div>
         <Component {...pageProps} />
       </div>
       <FooterCustom />

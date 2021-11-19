@@ -7,7 +7,6 @@ import React from "react";
 import style from "./productList.module.scss";
 
 const productList = () => {
-
   return (
     <Row className={style.cardList_container} justify="space-around">
       <Col span={3}>
@@ -16,16 +15,17 @@ const productList = () => {
       <Col span={20} style={{ borderLeft: "1px solid #afafaf" }}>
         <Row justify="space-around">
           {ExampleList.map((node) => (
-            <CardItem
-              key={node.id}
-              imageAlt={node.imageAlt}
-              imageSrc={node.imageSrc}
-              id={node.id}
-              name={node.name}
-              colors={node.colors}
-              price={node.price}
-              category={node.category}
-            />
+            <Col key={node.id} xs={24} sm={10} md={7} lg={7} xl={5}>
+              <CardItem
+                imageAlt={node.imageAlt}
+                imageSrc={node.imageSrc}
+                id={node.id}
+                name={node.name}
+                colors={node.colors}
+                price={node.price}
+                category={node.category}
+              />
+            </Col>
           ))}
         </Row>
       </Col>
