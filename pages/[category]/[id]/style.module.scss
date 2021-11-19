@@ -5,7 +5,6 @@
     display: flex;
     justify-content: space-around;
     .main_image_box {
-      cursor: pointer;
       border-radius: 4px;
       .main_image {
         border-radius: 4px;
@@ -53,9 +52,10 @@
       .header_name {
         font-weight: 700;
         font-size: 40px;
-        cursor: pointer;
       }
-      .like_icon {
+      .addToBasket_icon {
+        margin-right: 5rem;
+        color: #d82322;
         font-size: 30px;
         direction: rtl !important;
         cursor: pointer;
@@ -86,12 +86,10 @@
     }
 
     .color_container {
-      width: 40%;
+      width: 20%;
       display: flex;
       justify-content: space-between;
-      cursor: pointer;
       .color {
-        margin-right: 30px;
         border-radius: 50px;
         width: 35px;
         height: 35px;
@@ -108,7 +106,7 @@
       width: 50%;
       height: 70px;
       background-color: #d82322;
-      color: #c5c7c9;
+      color: white;
       font-size: 30px;
       cursor: pointer;
     }
