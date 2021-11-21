@@ -6,6 +6,9 @@
   position: fixed;
   top: 0;
   z-index: 99;
+  .header_logo{
+    cursor: pointer;
+  }
   .header_menu {
     display: flex;
     flex-direction: row;

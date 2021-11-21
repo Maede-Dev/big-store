@@ -60,7 +60,7 @@ const Header = (props) => {
           <Link href="/login">
             <div>
               <UserOutlined className={style.header_icon} />
-              <span className={style.header_text}>Log in/sign in</span>
+              <span className={style.header_text}>Log in / sign in</span>
             </div>
           </Link>
         </Col>
@@ -110,7 +110,7 @@ const Header = (props) => {
           <Link href="/login">
             <div className={style.bottom_menu}>
               <UserOutlined className={style.bottom_icon} />
-              <span className={style.bottom_text}>Log in/sign in</span>
+              <span className={style.bottom_text}>Log in / sign in</span>
             </div>
           </Link>
         </Row>
