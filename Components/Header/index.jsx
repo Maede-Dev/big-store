@@ -11,9 +11,12 @@ import {
 } from "@ant-design/icons";
 import WithSizes from "react-sizes";
 import style from "./style.module.scss";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
   const { isMobile } = props;
+  const isAuthenticated = useSelector((state) => state.authReducer);
+
   return (
     <>
       <Row className={style.header} justify="space-around" align="middle">
@@ -35,7 +38,6 @@ const Header = (props) => {
               <span className={style.header_text}>Home</span>
             </div>
           </Link>
-
           <Link href="/product-list">
             <div className={style.header_menu}>
               <UnorderedListOutlined className={style.header_icon} />
@@ -48,12 +50,13 @@ const Header = (props) => {
               <span className={style.header_text}>About Us</span>
             </div>
           </Link>
-          <Link href="/shopping-basket">
-            <div className={style.header_menu}>
-              <ShoppingCartOutlined className={style.header_basket} />
-              {/* <span className={style.header_text}>About Us</span> */}
-            </div>
-          </Link>
+          {isAuthenticated !== null && (
+            <Link href="/shopping-basket">
+              <div className={style.header_menu}>
+                <ShoppingCartOutlined className={style.header_basket} />
+              </div>
+            </Link>
+          )}
         </Col>
 
         <Col span={6} className={style.user_dropdown}>
@@ -69,7 +72,11 @@ const Header = (props) => {
       {/* mobile headers */}
 
       <div className={style.header_mobile}>
-        <Row align="middle" justify="space-between" className={style.header_top_mobile}>
+        <Row
+          align="middle"
+          justify="space-between"
+          className={style.header_top_mobile}
+        >
           <Link href="/">
             <img
               src="/Images/Logo.png"
@@ -124,5 +131,3 @@ const mapSizesToProps = ({ width }) => ({
   isTablet: width < 1000,
 });
 export default WithSizes(mapSizesToProps)(Header);
-
-// export default Header;
