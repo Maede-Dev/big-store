@@ -1,14 +1,15 @@
-import { Col, Divider, Input, Row, Space, Menu } from "antd";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import { Col, Divider, Input, Menu, Row, Space } from "antd";
 import {
-  UnorderedListOutlined,
-  UserOutlined,
   FileTextOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
+  UnorderedListOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
+import React, { useState } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
 import WithSizes from "react-sizes";
 import style from "./style.module.scss";
 import { useSelector } from "react-redux";
@@ -44,10 +45,10 @@ const Header = (props) => {
               <span className={style.header_text}>Product list</span>
             </div>
           </Link>
-          <Link href="/aboutUs">
+          <Link href="/contactUs">
             <div className={style.header_menu}>
               <FileTextOutlined className={style.header_icon} />
-              <span className={style.header_text}>About Us</span>
+              <span className={style.header_text}>Contact Us</span>
             </div>
           </Link>
           {isAuthenticated !== null && (
@@ -108,10 +109,10 @@ const Header = (props) => {
               <span className={style.bottom_text}>Product list</span>
             </div>
           </Link>
-          <Link href="/aboutUs">
+          <Link href="/contactUs">
             <div className={style.bottom_menu}>
               <FileTextOutlined className={style.bottom_icon} />
-              <span className={style.bottom_text}>About Us</span>
+              <span className={style.bottom_text}>Contact us</span>
             </div>
           </Link>
           <Link href="/login">

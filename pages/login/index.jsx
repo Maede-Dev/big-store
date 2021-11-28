@@ -1,15 +1,17 @@
-import { Button, Input, Space, Spin, Tabs } from "antd";
+import { Button, Form, Input, Space, Spin, Tabs, message } from "antd";
 import {
   ExclamationOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
   UserOutlined,
 } from "@ant-design/icons";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setLogIn } from "../../redux/actions";
 import React, { useState } from "react";
+
+import axios from "axios";
+import { setLogIn } from "../../redux/actions";
 import style from "./login.module.scss";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/dist/client/router";
 
 const { TabPane } = Tabs;
 
@@ -17,28 +19,70 @@ function callback(key) {
   console.log(key);
 }
 
-//to do  => use ant desing form for login then set for onFinish field the below function
-
 const Login = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  // const handleSubmit = async () => {
-  //   setLoading(true);
-  //   await axios
-  //     .post("http://localhost:1337/auth/local", {
-  //       identifier: "admin",
-  //       password: "bigstore1234",
-  //     })
-  //     .then((res) => dispatch(setLogIn(res.data)))
-  //     .catch((res) => console.log(res));
-  //   setLoading(fasle);
-  // };
+  const handleSubmit = async (values) => {
+    console.log(values);
+    setLoading(true);
+    await axios
+      .post("http://localhost:1337/auth/local", {
+        identifier: values?.userName,
+        password: values?.password,
+      })
+      .then((res) => {
+        dispatch(setLogIn(res.data));
+        router.push("/");
+      })
+      .catch(() => message.error("userName or password is incorrect"));
+    setLoading(false);
+  };
 
   return (
     <div className={style.login_Container}>
       <Spin spinning={loading}>
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Form
+          name="basic"
+          labelCol={{ span: 24 }}
+          wrapperCol={{ span: 24 }}
+          initialValues={{ remember: true }}
+          onFinish={handleSubmit}
+        >
+          <Form.Item
+            name="userName"
+            label="Username"
+            rules={[{ required: true, message: "Please input your username!" }]}
+          >
+            <Input
+              className={style.login_input}
+              size="middle"
+              placeholder="Email / Username"
+            />
+          </Form.Item>
+
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password
+              style={{ borderColor: "#a4a4a4" }}
+              placeholder="input password"
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
+            />
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+        {/* <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="Sign In" key="1">
             <h3 className={style.login_title}>Enter userName or email </h3>
             <Input
@@ -97,7 +141,7 @@ const Login = () => {
               Continue
             </Button>
           </TabPane>
-        </Tabs>
+        </Tabs> */}
       </Spin>
     </div>
   );
