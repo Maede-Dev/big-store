@@ -44,7 +44,6 @@ const Login = () => {
     <div className={style.login_Container}>
       <Spin spinning={loading}>
         <Form
-          name="basic"
           labelCol={{ span: 24 }}
           wrapperCol={{ span: 24 }}
           initialValues={{ remember: true }}
@@ -77,7 +76,7 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button className={style.login_btn} type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>

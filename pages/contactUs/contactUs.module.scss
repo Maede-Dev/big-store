@@ -1,0 +1,108 @@
+.ContactUs_Container {
+  align-items: center;
+  margin-left:10%;
+  width:80%;
+  height: 50%;
+  padding: 20px;
+  margin-bottom: 30px;
+  margin-top: 10%;
+
+  .ContactUs_title{
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  }
+
+  .h1{
+    align-items: center;
+    font-size: 50px;
+    margin-left: 36%;
+    font-weight: 600;
+  }
+
+  .breadcrumbs{
+    font-size: 20px;
+    margin-left: 41.25%;
+
+  }
+
+
+
+.text{
+  margin-left: 24%;
+  font-size: 20px;
+  color: #707474;
+  margin-top: 10%;
+}
+
+
+
+  :global{
+    .ant-form-horizontal .ant-form-item-label {
+      -moz-box-flex: 0;
+      position: relative;
+    display: -moz-inline-box;
+    -moz-box-align: center;
+    align-items: center;
+    max-width: 100%;
+    height: 32px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 19px;
+    font-weight: 600;
+    margin-left: -10%;
+    }
+    .ant-form-item-label > label {
+      position: relative;
+      display: -moz-inline-box;
+      display: inline-flex;
+      -moz-box-align: center;
+      align-items: center;
+      max-width: 100%;
+      height: 32px;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 20px;
+  }
+    .ant-input {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-variant: tabular-nums;
+      list-style: none;
+      -webkit-font-feature-settings: 'tnum', "tnum";
+      -moz-font-feature-settings: 'tnum', "tnum";
+      font-feature-settings: 'tnum', "tnum";
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      /* height: 60%; */
+      min-width: 0;
+      padding: 12px 11px;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 18px;
+      line-height: 1.5715;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #d9d9d9;
+      border-radius: 5px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+  }
+  }
+
+  .ContactUs_btn {
+    border-radius: 5px;
+    margin-top: 3%;
+    width: 114px;
+    font-weight: 700;
+    font-size: 20px;
+    height: 41px;
+    background: #d30606;
+    background-color: #d30606;
+    border-color: #d30606;
+    color: whitesmoke;
+    margin-left: -110px;
+  }
+}
