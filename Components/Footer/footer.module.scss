@@ -1,6 +1,51 @@
 .footer_container {
   color: white;
-  background-color: #123432;
+  background-color: #161616;
   min-height: 312px;
   margin-top: 10%;
+  padding: 100px 0 20px 0;
+  .page_name {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    font-style: italic;
+  }
+  h2 {
+    font-style: italic;
+    color: white;
+  }
+  .text {
+    font-size: 16px;
+    color: white;
+  }
+  .links_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    .links {
+      // margin-bottom: 8px;
+      font-size: 14px;
+      padding-bottom: 2px;
+      text-decoration: underline;
+    }
+  }
+}
+
+.copy_right {
+  margin-top: 50px;
+  text-align: center;
+  color: #eee;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .footer_container{
+    justify-content: center !important;
+  }
+  .text_box {
+    text-align: center;
+    margin: 40px 0;
+  }
 }
