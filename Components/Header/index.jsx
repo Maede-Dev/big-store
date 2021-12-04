@@ -1,10 +1,12 @@
 import { Col, Divider, Input, Menu, Row, Space } from "antd";
 import {
+  CreditCardOutlined,
+  CustomerServiceOutlined,
   FileTextOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
   UnorderedListOutlined,
-  UserOutlined,
+  UserOutlined
 } from "@ant-design/icons";
 import React, { useState } from "react";
 
@@ -47,7 +49,7 @@ const Header = (props) => {
           </Link>
           <Link href="/contactUs">
             <div className={style.header_menu}>
-              <FileTextOutlined className={style.header_icon} />
+              < CustomerServiceOutlined className={style.header_icon} />
               <span className={style.header_text}>Contact Us</span>
             </div>
           </Link>
@@ -60,11 +62,20 @@ const Header = (props) => {
           )}
         </Col>
 
-        <Col span={6} className={style.user_dropdown}>
+        <Col span={3} className={style.user_dropdown}>
           <Link href="/login">
             <div>
               <UserOutlined className={style.header_icon} />
-              <span className={style.header_text}>Log in / sign in</span>
+              <span className={style.header_text}>Log in / Sign In</span>
+            </div>
+          </Link>
+        </Col>
+
+        <Col span={3} className={style.user_dropdown}>
+          <Link href="/profile">
+            <div>
+              <CreditCardOutlined className={style.header_icon} />
+              <span className={style.header_text}>My profile</span>
             </div>
           </Link>
         </Col>
@@ -118,7 +129,13 @@ const Header = (props) => {
           <Link href="/login">
             <div className={style.bottom_menu}>
               <UserOutlined className={style.bottom_icon} />
-              <span className={style.bottom_text}>Log in / sign in</span>
+              <span className={style.bottom_text}>Log in / Sign In</span>
+            </div>
+          </Link>
+          <Link href="/profile">
+            <div className={style.bottom_menu}>
+              <UserOutlined className={style.bottom_icon} />
+              <span className={style.bottom_text}>My Profile</span>
             </div>
           </Link>
         </Row>

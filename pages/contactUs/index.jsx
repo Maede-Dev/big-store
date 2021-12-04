@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import { Button, Col, Form, Input, Row } from "antd";
-=======
-import { Button, Form, Input, message, Spin } from "antd";
->>>>>>> 405f724274415d6df2757ac0084f360795f3d677
-
-import { Breadcrumb } from "antd";
+import { Button, Form, Input, Spin, message } from "antd";
 import React, { useRef, useState } from "react";
+
 import style from "./contactUs.module.scss";
 
 const layout = {
@@ -36,41 +31,8 @@ const ContactUs = () => {
 
   return (
     <div className={style.ContactUs_Container}>
-<<<<<<< HEAD
-      <Row className="contactUs"> 
-      <Col span={24}>
-      <div className={style.ContactUs_title}>
-        <h1 className={style.h1} >Contact Us</h1>
-        <Breadcrumb >
-    <Breadcrumb.Item className={style.breadcrumbs}>
-      <a href="/">Home</a>
-    </Breadcrumb.Item>
-    <Breadcrumb.Item>Contact US</Breadcrumb.Item>
-  </Breadcrumb>
-      </div>
-      </Col>
-      </Row>
-      <p className={style.text}>Please enter your details below or give us a call for any sales or order enquiries.</p>
-      <Form
-        {...layout}
-        name="nest-messages"
-        onFinish={onFinish}
-        validateMessages={validateMessages}
-      >
-        <Form.Item name={["user", "name"]} label="Name">
-          <Input />
-        </Form.Item>
-
-        <Form.Item
-          name={["user", "email"]}
-          label="Email"
-          rules={[
-            {
-              type: "email",
-            },
-          ]}
-=======
       <Spin spinning={loading}>
+        <h1 className={style.h1}>Contact Us</h1>
         <h3 className={style.text}>
           Please enter your details below or give us a call for any sales or
           order enquiries.
@@ -80,7 +42,6 @@ const ContactUs = () => {
           form={formRef}
           name="nest-messages"
           onFinish={onFinish}
->>>>>>> 405f724274415d6df2757ac0084f360795f3d677
         >
           <Form.Item name={["user", "name"]} label="Name">
             <Input />

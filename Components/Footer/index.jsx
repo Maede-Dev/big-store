@@ -1,13 +1,14 @@
-import { Col, Image, Row, Button } from "antd";
-import React from "react";
-import style from "./footer.module.scss";
-import Link from "next/link";
+import { Button, Col, Image, Row } from "antd";
 import {
+  FileTextOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
-  FileTextOutlined,
   UnorderedListOutlined,
 } from "@ant-design/icons";
+
+import Link from "next/link";
+import React from "react";
+import style from "./footer.module.scss";
 
 const FooterCustom = () => {
   return (
@@ -35,17 +36,17 @@ const FooterCustom = () => {
               <HomeOutlined /> Home
             </span>
           </Link>
-          <Link href="/">
+          <Link href="/product-list">
             <span className={style.links}>
               <UnorderedListOutlined /> Product list
             </span>
           </Link>
-          <Link href="/">
+          <Link href="/shopping-basket">
             <span className={style.links}>
               <ShoppingCartOutlined /> basket
             </span>
           </Link>
-          <Link href="/">
+          <Link href="/contactUs">
             <span className={style.links}>
               <FileTextOutlined /> Contact Us
             </span>

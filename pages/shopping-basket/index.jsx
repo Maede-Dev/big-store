@@ -4,8 +4,8 @@ import {
   MinusCircleOutlined,
   PlusCircleOutlined,
 } from "@ant-design/icons";
-
 import React, { useEffect, useState } from "react";
+
 import style from "./shoppingBasket.module.scss";
 
 const ShoppingBasket = () => {
@@ -107,7 +107,7 @@ const ShoppingBasket = () => {
             scroll={true}
           />
         </Col>
-        <Col span={6} className={style.total_prices}>
+        {/* <Col span={6} className={style.total_prices}>
           <Search
             placeholder="Enter a promo code"
             allowClear
@@ -115,7 +115,7 @@ const ShoppingBasket = () => {
             size="large"
             className={style.offer_code_input}
           />
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );

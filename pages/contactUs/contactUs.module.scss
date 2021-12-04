@@ -1,12 +1,8 @@
 .ContactUs_Container {
   align-items: center;
-  margin-top: 90px;
+  margin-top: 8%;
   text-align: center;
-  .ContactUs_title {
-    height: 100%;
-    width: 100%;
-    align-items: center;
-  }
+ 
 
   .h1 {
     font-size: 50px;
@@ -17,23 +13,12 @@
     font-size: 20px;
   }
 
-<<<<<<< HEAD
-.text{
-  margin-left: 24%;
-  font-size: 20px;
-  color: #707474;
-  margin-top: 10%;
-}
-
-  :global{
-=======
   .text {
     font-size: 20px;
     color: #707474;
   }
 
   :global {
->>>>>>> 405f724274415d6df2757ac0084f360795f3d677
     .ant-form-horizontal .ant-form-item-label {
       -moz-box-flex: 0;
       position: relative;
