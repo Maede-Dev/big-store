@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Button, Col, Form, Input, Row } from "antd";
 
 import { Breadcrumb } from 'antd';
 import React from "react";
@@ -28,6 +28,8 @@ const ContactUs = () => {
 
   return (
     <div className={style.ContactUs_Container}>
+      <Row className="contactUs"> 
+      <Col span={24}>
       <div className={style.ContactUs_title}>
         <h1 className={style.h1} >Contact Us</h1>
         <Breadcrumb >
@@ -37,6 +39,8 @@ const ContactUs = () => {
     <Breadcrumb.Item>Contact US</Breadcrumb.Item>
   </Breadcrumb>
       </div>
+      </Col>
+      </Row>
       <p className={style.text}>Please enter your details below or give us a call for any sales or order enquiries.</p>
       <Form
         {...layout}
