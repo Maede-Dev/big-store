@@ -1,4 +1,4 @@
-import { Col, Divider, Input, Menu, Row, Space } from "antd";
+import { Badge, Col, Divider, Input, Menu, Row, Space } from "antd";
 import {
   CreditCardOutlined,
   CustomerServiceOutlined,
@@ -6,7 +6,8 @@ import {
   HomeOutlined,
   ShoppingCartOutlined,
   UnorderedListOutlined,
-  UserOutlined
+  UserOutlined,
+  PhoneOutlined,
 } from "@ant-design/icons";
 import React, { useState } from "react";
 
@@ -19,11 +20,12 @@ import { useSelector } from "react-redux";
 const Header = (props) => {
   const { isMobile } = props;
   const isAuthenticated = useSelector((state) => state.authReducer);
-
+  const basketItemsLength = useSelector((state) => state.basketItems);
+  console.log(basketItemsLength)
   return (
     <>
       <Row className={style.header} justify="space-around" align="middle">
-        <Col span={5}>
+        <Col span={6}>
           <Link href="/">
             <Image
               className={style.header_logo}
@@ -34,7 +36,7 @@ const Header = (props) => {
             />
           </Link>
         </Col>
-        <Col span={10} className={style.header_menu}>
+        <Col span={11} className={style.header_menu}>
           <Link href="/">
             <div className={style.header_menu}>
               <HomeOutlined className={style.header_icon} />
@@ -49,35 +51,37 @@ const Header = (props) => {
           </Link>
           <Link href="/contactUs">
             <div className={style.header_menu}>
-              < CustomerServiceOutlined className={style.header_icon} />
+              <PhoneOutlined className={style.header_icon} />
               <span className={style.header_text}>Contact Us</span>
             </div>
           </Link>
           {isAuthenticated !== null && (
             <Link href="/shopping-basket">
               <div className={style.header_menu}>
-                <ShoppingCartOutlined className={style.header_basket} />
+                <Badge count={basketItemsLength.length} showZero>
+                  <ShoppingCartOutlined className={style.header_basket} />
+                </Badge>
               </div>
             </Link>
           )}
         </Col>
 
-        <Col span={3} className={style.user_dropdown}>
-          <Link href="/login">
-            <div>
-              <UserOutlined className={style.header_icon} />
-              <span className={style.header_text}>Log in / Sign In</span>
-            </div>
-          </Link>
-        </Col>
-
-        <Col span={3} className={style.user_dropdown}>
-          <Link href="/profile">
-            <div>
-              <CreditCardOutlined className={style.header_icon} />
-              <span className={style.header_text}>My profile</span>
-            </div>
-          </Link>
+        <Col span={4} className={style.user_dropdown}>
+          {isAuthenticated === null ? (
+            <Link href="/login">
+              <div>
+                <UserOutlined className={style.header_icon} />
+                <span className={style.header_text}>Log in / Sign In</span>
+              </div>
+            </Link>
+          ) : (
+            <Link href="/profile">
+              <div>
+                <CreditCardOutlined className={style.header_icon} />
+                <span className={style.header_text}>My profile</span>
+              </div>
+            </Link>
+          )}
         </Col>
       </Row>
 
@@ -85,20 +89,24 @@ const Header = (props) => {
 
       <div className={style.header_mobile}>
         <Row
-          align="middle"
+          align="bottom"
           justify="space-between"
           className={style.header_top_mobile}
         >
           <Link href="/">
-            <img
+            <Image
               src="/Images/Logo.png"
               alt="header-logo"
-              className={style.header_logo}
+              className={style.header_mobile_logo}
+              width={220}
+              height={40}
             />
           </Link>
           <Link href="/shopping-basket">
             <div className={style.bottom_menu}>
-              <ShoppingCartOutlined className={style.mobile_basket} />
+              <Badge count={basketItemsLength.length} showZero>
+                <ShoppingCartOutlined className={style.mobile_basket} />
+              </Badge>
             </div>
           </Link>
         </Row>
@@ -126,18 +134,21 @@ const Header = (props) => {
               <span className={style.bottom_text}>Contact us</span>
             </div>
           </Link>
-          <Link href="/login">
-            <div className={style.bottom_menu}>
-              <UserOutlined className={style.bottom_icon} />
-              <span className={style.bottom_text}>Log in / Sign In</span>
-            </div>
-          </Link>
-          <Link href="/profile">
-            <div className={style.bottom_menu}>
-              <UserOutlined className={style.bottom_icon} />
-              <span className={style.bottom_text}>My Profile</span>
-            </div>
-          </Link>
+          {isAuthenticated === null ? (
+            <Link href="/login">
+              <div className={style.bottom_menu}>
+                <UserOutlined className={style.bottom_icon} />
+                <span className={style.bottom_text}>Log in / Sign In</span>
+              </div>
+            </Link>
+          ) : (
+            <Link href="/profile">
+              <div className={style.bottom_menu}>
+                <UserOutlined className={style.bottom_icon} />
+                <span className={style.bottom_text}>My Profile</span>
+              </div>
+            </Link>
+          )}
         </Row>
       </div>
     </>

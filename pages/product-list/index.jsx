@@ -1,24 +1,34 @@
-import { Col, Row } from "antd";
+import { Col, Row, Spin } from "antd";
 
 import CardItem from "../../Components/Card";
 import ExampleList from "../../Components/hardData/productList";
 import ProductListSideBar from "../ProductListSideBar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./productList.module.scss";
+import axios from "axios";
 
-const productList = () => {
+const ProductList = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  console.log("this is products", products);
+  const getProducts = async () => {
+    await axios
+      .get("http://localhost:1337/products")
+      .then((res) => setProducts(res.data));
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
-    <Row className={style.cardList_container} justify="space-around">
-      <Col span={3}>
-        <ProductListSideBar />
-      </Col>
-      <Col span={20} style={{ borderLeft: "1px solid #afafaf" }}>
-        <Row justify="space-around">
-          {ExampleList.map((node) => (
+    <Spin spinning={loading}>
+      <Row className={style.cardList_container} justify="space-around">
+        {products?.length > 0 ? (
+          products?.map((node) => (
             <Col key={node.id} xs={24} sm={10} md={7} lg={7} xl={5}>
               <CardItem
-                imageAlt={node.imageAlt}
-                imageSrc={node.imageSrc}
+                images={node.images}
                 id={node.id}
                 name={node.name}
                 colors={node.colors}
@@ -26,11 +36,13 @@ const productList = () => {
                 category={node.category}
               />
             </Col>
-          ))}
-        </Row>
-      </Col>
-    </Row>
+          ))
+        ) : (
+          <div>empty</div>
+        )}
+      </Row>
+    </Spin>
   );
 };
 
-export default productList;
+export default ProductList;

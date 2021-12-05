@@ -9,3 +9,16 @@ export const setLogOut = () => {
     type: "LOG_OUT",
   };
 };
+
+export const setBasketItem = (id) => {
+  return {
+    type: "SET_ITEM",
+    payload: id,
+  };
+};
+
+export const removeBasketItems = () => {
+  return {
+    type: "REMOVE_ITEM",
+  };
+};

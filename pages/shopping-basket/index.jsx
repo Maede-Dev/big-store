@@ -1,16 +1,19 @@
-import { Col, Input, Row, Space, Table } from "antd";
+import { Col, Input, message, Row, Space, Table } from "antd";
 import {
   DeleteOutlined,
   MinusCircleOutlined,
   PlusCircleOutlined,
 } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
-
 import style from "./shoppingBasket.module.scss";
+import { useRouter } from "next/dist/client/router";
+import { useSelector } from "react-redux";
 
 const ShoppingBasket = () => {
-  const { Search } = Input;
+  const isAuthenticated = useSelector((state) => state.authReducer);
+  const router = useRouter();
   const [totalPrice, setTotalPrice] = useState(0);
+
   const columns = [
     {
       title: "Name",
@@ -77,6 +80,10 @@ const ShoppingBasket = () => {
   ];
 
   useEffect(() => {
+    if (isAuthenticated === null) {
+      message.error("You are not log in");
+      router.push("/login");
+    }
     generateTotal(TableData);
   });
 

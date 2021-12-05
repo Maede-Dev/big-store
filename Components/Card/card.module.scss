@@ -4,7 +4,6 @@
       border-radius: 28px 28px 0 0;
     }
   }
-  cursor: pointer;
   margin: 1rem 0.7rem;
   background-color: white;
   border-radius: 28px;
@@ -18,6 +17,7 @@
     cursor: pointer;
     .products_name {
       font-weight: 700;
+      margin-bottom: 20px;
     }
     .products_color {
       color: #332e31ad;
@@ -25,24 +25,19 @@
     .products_price {
       color: rgb(18, 141, 14);
       font-weight: 700;
-      margin-left: 100px;
     }
   }
-  .colcards {
-    margin-top: 15px;
-  }
 
-  .add_btn {
-    color: #c5c7c9;
-    background-color: #d82322;
-    border: 1px solid #d82322;
-  }
-
-  .rate {
-    margin-left: 35px;
+  .button_section {
+    margin-top: 20px;
+    padding: 0 0 10px 10px;
+    .add_btn {
+      color: #c5c7c9;
+      background-color: #d82322;
+      border: 1px solid #d82322;
+    }
   }
 }
 .card_container:hover {
-
   box-shadow: rgba(0, 0, 0, 0.452) 0px 5px 15px;
 }
