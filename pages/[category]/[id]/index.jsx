@@ -1,5 +1,5 @@
-import { Col, Image, Row, Space } from "antd";
-import React, { useState } from "react";
+import { Col, Image, message, Row, Space } from "antd";
+import React, { useEffect, useState } from "react";
 
 import { Divider } from "antd";
 import ExampleList from "/Components/hardData/productList";
@@ -8,22 +8,46 @@ import { Rate } from "antd";
 import style from "./style.module.scss";
 import { useRouter } from "next/dist/client/router";
 import withSizes from "react-sizes";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setBasketItem } from "../../../redux/actions";
 
 const SingleProduct = (props) => {
-  const { isMobile } = props;
-  console.log(isMobile);
-  const router = useRouter();
-
-  const exampleFound = ExampleList.find(function (node, index) {
-    if (node.id == router.query.id) return node;
-  });
-  const [bigerImage, setBigerImage] = useState();
-
   const colors = [
     { src: "/Images/color1.png", alt: "browncolor" },
     { src: "/Images/color2.png", alt: "honeybrowncolor" },
     { src: "/Images/color3.png", alt: "blackcolor" },
   ];
+  const isAuthenticated = useSelector((state) => state.authReducer);
+  const { isMobile } = props;
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [bigerImage, setBigerImage] = useState();
+  const [cardData, setCardData] = useState();
+  const params = router.query.id;
+  // const exampleFound = ExampleList.find(function (node, index) {
+  //   if (node.id == router.query.id) return node;
+  // });
+
+  const getData = () => {
+    axios
+      .get(`http://localhost:1337/products/3`)
+      .then((res) => setCardData(res.data));
+  };
+
+  const handleAddToBasket = () => {
+    if (isAuthenticated !== null) {
+      dispatch(setBasketItem(cardData));
+    } else {
+      message.error("you are not log in");
+      router.push("/login");
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, [router?.query?.id]);
+
   return (
     <Row className={style.singleProduct_container} justify="space-around">
       {/* LeftSidebar */}
@@ -31,7 +55,9 @@ const SingleProduct = (props) => {
         <Space size="small" className={style.left_side}>
           <div className={style.main_image_box}>
             <Image
-              src={bigerImage || exampleFound?.imageSrc[0]}
+              src={
+                bigerImage || `http://localhost:1337${cardData?.images[0]?.url}`
+              }
               preview={false}
               width={isMobile ? 300 : 500}
               height={isMobile ? 300 : 500}
@@ -41,10 +67,10 @@ const SingleProduct = (props) => {
           </div>
 
           <div className={style.othersImg}>
-            {exampleFound?.imageSrc.map((node, index) => (
+            {cardData?.images.map((node, index) => (
               <Image
                 key={index}
-                src={node}
+                src={`http://localhost:1337${node.url}`}
                 width={isMobile ? 55 : 100}
                 height={isMobile ? 55 : 100}
                 preview={false}
@@ -73,13 +99,14 @@ const SingleProduct = (props) => {
         className={style.right_side}
       >
         <Space size="middle" className={style.header}>
-          <h1 className={style.header_name}>{exampleFound?.name}</h1>
-          <PlusCircleOutlined  className={style.addToBasket_icon} />
+          <h1 className={style.header_name}>{cardData?.name}</h1>
+          <PlusCircleOutlined
+            className={style.addToBasket_icon}
+            onClick={handleAddToBasket}
+          />
         </Space>
-        <div className={style.product_description}>
-          {exampleFound?.description}
-        </div>
-        <h1 className={style.price}>$ {exampleFound?.price}</h1>
+        <div className={style.product_description}>{cardData?.description}</div>
+        <h1 className={style.price}>$ {cardData?.price}</h1>
         <Row>
           <Rate
             allowHalf
@@ -88,7 +115,7 @@ const SingleProduct = (props) => {
             value={4.5}
             style={{ color: "#000" }}
           />
-          <span className={style.review}>{exampleFound?.reviews}</span>
+          <span className={style.review}>{cardData?.reviews}</span>
         </Row>
         <div className={style.color_name}>Colors</div>
         <div className={style.color_container}>
@@ -103,7 +130,9 @@ const SingleProduct = (props) => {
           ))}
         </div>
 
-        <button className={style.add_button}>Add to basket</button>
+        <button className={style.add_button} onClick={handleAddToBasket}>
+          Add to basket
+        </button>
       </Col>
     </Row>
   );

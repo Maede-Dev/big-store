@@ -1,7 +1,17 @@
-import { Badge, Col, Divider, Input, Menu, Row, Space } from "antd";
 import {
+  Badge,
+  Col,
+  Divider,
+  Dropdown,
+  Input,
+  Menu,
+  message,
+  Row,
+  Space,
+} from "antd";
+import {
+  ExportOutlined,
   CreditCardOutlined,
-  CustomerServiceOutlined,
   FileTextOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
@@ -15,13 +25,43 @@ import Image from "next/image";
 import Link from "next/link";
 import WithSizes from "react-sizes";
 import style from "./style.module.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setLogOut } from "../../redux/actions";
+import { useRouter } from "next/dist/client/router";
 
 const Header = (props) => {
   const { isMobile } = props;
+  const router = useRouter();
   const isAuthenticated = useSelector((state) => state.authReducer);
   const basketItemsLength = useSelector((state) => state.basketItems);
-  console.log(basketItemsLength)
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(setLogOut());
+    router.push("/login");
+    message.success("You loged out successfuly");
+  };
+
+  const dropdownMenu = (
+    <Menu>
+      <Menu.Item icon={<CreditCardOutlined className={style.header_icon} />}>
+        <Link href="/profile">
+          <div>
+            <span className={style.header_text}>My profile</span>
+          </div>
+        </Link>
+      </Menu.Item>
+      <Menu.Item icon={<ExportOutlined className={style.header_icon} />}>
+        {/* <Link href="/login"> */}
+
+        <div className={style.header_menu} onClick={handleLogOut}>
+          <span className={style.header_text}>Log out</span>
+        </div>
+        {/* </Link> */}
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <>
       <Row className={style.header} justify="space-around" align="middle">
@@ -75,12 +115,12 @@ const Header = (props) => {
               </div>
             </Link>
           ) : (
-            <Link href="/profile">
-              <div>
-                <CreditCardOutlined className={style.header_icon} />
-                <span className={style.header_text}>My profile</span>
+            <Dropdown overlay={dropdownMenu}>
+              <div className={style.username}>
+                <UserOutlined />
+                <span className="ml-3">{isAuthenticated?.user?.username}</span>
               </div>
-            </Link>
+            </Dropdown>
           )}
         </Col>
       </Row>

@@ -17,8 +17,9 @@ export const setBasketItem = (id) => {
   };
 };
 
-export const removeBasketItems = () => {
+export const removeBasketItems = (id) => {
   return {
     type: "REMOVE_ITEM",
+    payload: id,
   };
 };

@@ -217,6 +217,8 @@
 
 import axios from "axios";
 
+export const localUrl = "http://localhost:1337";
+
 export const productsList = axios
   .get("http://localhost:1337/products")
   .then((res) => res?.data);

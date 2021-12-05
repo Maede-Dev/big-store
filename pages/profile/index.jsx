@@ -29,8 +29,8 @@ const Profile = () => {
     firstName: "Maede",
     lastName: "karimi",
     phoneNumber: "09012589632",
-    email: "",
-    gender: "",
+    email: "maede@gmail.com",
+    gender: "female",
     birthDate: "",
   };
   const [formRef] = Form.useForm();

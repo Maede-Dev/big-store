@@ -26,34 +26,33 @@ const CardItem = (props) => {
 
   return (
     <div className={style.card_container}>
+      <Carousel effect="fade" autoplay className={style.card_image}>
+        {images?.map((node) => (
+          <Image
+            key={id}
+            alt="products"
+            src={`http://localhost:1337${node.url}`}
+            width="100%"
+            height={200}
+            className={style.card_image}
+            preview={false}
+          />
+        ))}
+      </Carousel>
+      
       <Link href={`/${category}/${id}`}>
-        <>
-          <Carousel effect="fade" autoplay className={style.card_image}>
-            {images?.map((node) => (
-              <Image
-                key={id}
-                alt="products"
-                src={`http://localhost:1337${node.url}`}
-                width="100%"
-                height={200}
-                className={style.card_image}
-                preview={false}
-              />
-            ))}
-          </Carousel>
-          <Row className={style.products_body} align="middle">
-            <Col span={24}>
-              <h3 className={style.products_name}>{name}</h3>
-            </Col>
+        <Row className={style.products_body} align="middle">
+          <Col span={24}>
+            <h3 className={style.products_name}>{name}</h3>
+          </Col>
 
-            <Col span={19}>
-              <span className={style.products_color}>{colors}</span>
-            </Col>
-            <Col span={5}>
-              <span className={style.products_price}>$ {price}</span>
-            </Col>
-          </Row>
-        </>
+          <Col span={19}>
+            <span className={style.products_color}>{colors}</span>
+          </Col>
+          <Col span={5}>
+            <span className={style.products_price}>$ {price}</span>
+          </Col>
+        </Row>
       </Link>
       <div className={style.button_section}>
         <Tooltip title="Add to Shopping Basket" className={style.add_btn}>
