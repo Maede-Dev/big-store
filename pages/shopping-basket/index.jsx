@@ -1,4 +1,4 @@
-import { Col, Input, message, Row, Space, Table } from "antd";
+import { Col, Image, Input, message, Row, Space, Table } from "antd";
 import {
   DeleteOutlined,
   MinusCircleOutlined,
@@ -10,14 +10,33 @@ import { useRouter } from "next/dist/client/router";
 import { useSelector } from "react-redux";
 
 const ShoppingBasket = () => {
+  const basketItems = useSelector((state) => state.basketItems);
   const isAuthenticated = useSelector((state) => state.authReducer);
   const router = useRouter();
   const [totalPrice, setTotalPrice] = useState(0);
 
   const columns = [
     {
+      title: "",
+      dataIndex: "images",
+      render: (entity, record) => {
+        console.log(record);
+        // return <div>{record.id}</div>;
+        return (
+          <Image
+            preview={false}
+            alt="basket items"
+            width={60}
+            height={60}
+            src={`http://localhost:1337${record?.images[0]?.url}`}
+          />
+        );
+      },
+    },
+    {
       title: "Name",
       dataIndex: "name",
+      render: (index, record) => <h3>{record?.name}</h3>,
     },
     {
       title: "Quantity",
@@ -40,66 +59,29 @@ const ShoppingBasket = () => {
     },
   ];
 
-  const TableData = [
-    {
-      key: "1",
-      name: "bag1",
-      quantity: "5",
-      price: 215,
-    },
-    {
-      key: "2",
-      name: "bag2",
-      quantity: "5",
-      price: 165,
-    },
-    {
-      key: "3",
-      name: "bag3",
-      quantity: "5",
-      price: 127,
-    },
-    {
-      key: "4",
-      name: "bag4",
-      quantity: "5",
-      price: 100,
-    },
-    {
-      key: "5",
-      name: "bag5",
-      quantity: "5",
-      price: 874,
-    },
-    {
-      key: "6",
-      name: "bag6",
-      quantity: "5",
-      price: 794,
-    },
-  ];
-
   useEffect(() => {
     if (isAuthenticated === null) {
       message.error("You are not log in");
       router.push("/login");
     }
-    generateTotal(TableData);
+    generateTotal(basketItems);
   });
 
   function handleDelete(value) {
     console.log(totalPrice);
     const allowDelete = confirm("Are you sure you want to delete this item?");
     if (allowDelete) {
-      TableData.shift();
+      basketItems.shift();
     }
   }
 
-  function generateTotal(TableData) {
+  function generateTotal(basketItems) {
     setTotalPrice(
-      TableData.map((node) => node?.price).reduce(function (a, b) {
-        return b + a;
-      }, 0)
+      basketItems
+        .map((node) => node?.price)
+        .reduce(function (a, b) {
+          return b + a;
+        }, 0)
     );
   }
   return (
@@ -109,7 +91,7 @@ const ShoppingBasket = () => {
           <Table
             className={style.table}
             columns={columns}
-            dataSource={TableData}
+            dataSource={basketItems}
             pagination={false}
             scroll={true}
           />
