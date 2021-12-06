@@ -1,16 +1,16 @@
-import { Col, Image, message, Row, Space } from "antd";
+import { Col, Image, Row, Space, message } from "antd";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Divider } from "antd";
 import ExampleList from "/Components/hardData/productList";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
+import axios from "axios";
+import { setBasketItem } from "../../../redux/actions";
 import style from "./style.module.scss";
 import { useRouter } from "next/dist/client/router";
 import withSizes from "react-sizes";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setBasketItem } from "../../../redux/actions";
 
 const SingleProduct = (props) => {
   const colors = [
@@ -77,7 +77,7 @@ const SingleProduct = (props) => {
                 className={style.item_images}
                 style={node == bigerImage ? { border: "1px solid #000" } : null}
                 alt="card2"
-                onClick={() => setBigerImage(node)}
+                onClick={() => setBigerImage(`http://localhost:1337${node.url}`)}
               />
             ))}
           </div>
