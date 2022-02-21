@@ -1,9 +1,7 @@
-import { Button, Form, Input, Space, Spin, Tabs, message } from "antd";
+import { Button, Form, Input, Spin, message } from "antd";
 import {
-  ExclamationOutlined,
   EyeInvisibleOutlined,
-  EyeTwoTone,
-  UserOutlined,
+  EyeTwoTone
 } from "@ant-design/icons";
 import React, { useState } from "react";
 
@@ -13,19 +11,12 @@ import style from "./login.module.scss";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/dist/client/router";
 
-const { TabPane } = Tabs;
-
-function callback(key) {
-  console.log(key);
-}
-
 const Login = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (values) => {
-    console.log(values);
     setLoading(true);
     await axios
       .post("http://localhost:1337/auth/local", {
@@ -81,66 +72,6 @@ const Login = () => {
             </Button>
           </Form.Item>
         </Form>
-        {/* <Tabs defaultActiveKey="1" onChange={callback}>
-          <TabPane tab="Sign In" key="1">
-            <h3 className={style.login_title}>Enter userName or email </h3>
-            <Input
-              className={style.login_input}
-              size="middle"
-              placeholder="Email / Phone number / Username"
-              prefix={<UserOutlined />}
-            />
-            <br />
-            <br />
-            <h3 className={style.login_title}>Password</h3>
-            <Input.Password
-              style={{ borderColor: "#a4a4a4" }}
-              placeholder="input password"
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
-            />
-            <br />
-            <br />
-            <Button type="danger" className={style.login_btn}>
-              Continue
-            </Button>
-          </TabPane>
-          <TabPane tab="Create new Account" key="2">
-            <h3 className={style.login_title}>Your name</h3>
-            <Input className={style.login_input} size="middle" />
-            <br />
-            <br />
-            <h3 className={style.login_title}>Mobile number or email</h3>
-            <Input className={style.login_input} size="middle" />
-            <br />
-            <br />
-            <h3 className={style.login_title}>Username</h3>
-            <Input className={style.login_input} size="middle" />
-            <br />
-            <br />
-            <h3 className={style.login_title}>Password</h3>
-            <Input
-              className={style.login_input}
-              size="middle"
-              placeholder="At least 6 characters"
-            />
-            <br />
-            <span>
-              <ExclamationOutlined style={{ color: "#d30606" }} />
-              Passwords must be at least 6 characters.
-            </span>
-            <br />
-            <br />
-            <h3 className={style.login_title}>Re-enter password</h3>
-            <Input className={style.login_input} size="middle" />
-            <br />
-            <br />
-            <Button type="danger" className={style.login_btn}>
-              Continue
-            </Button>
-          </TabPane>
-        </Tabs> */}
       </Spin>
     </div>
   );

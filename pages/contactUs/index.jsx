@@ -24,7 +24,7 @@ const ContactUs = () => {
     }, 1500);
     message.success(
       `Dear ${
-        values.name || "..."
+        values.name || "Maede"
       } thank you for your message, our supporter will answer your soon`
     );
   };

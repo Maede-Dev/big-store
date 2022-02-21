@@ -1,11 +1,12 @@
-import { Carousel } from "antd";
-import React, { useState, useEffect } from "react";
-import s from "./style.module.scss";
-import productsList from "../../hardData/productList";
+import React, { useEffect, useState } from "react";
+
 import CardItem from "../../Card";
+import { Carousel } from "antd";
 import SectionHeader from "../../sectionHeader";
 import WithSizes from "react-sizes";
 import axios from "axios";
+import productsList from "../../hardData/productList";
+import s from "./style.module.scss";
 
 const HomeSlider = (props) => {
   const [productsList, setProductsList] = useState([]);
@@ -16,7 +17,14 @@ const HomeSlider = (props) => {
   };
 
   useEffect(() => {
+    let minute = 60000;
     getProducts();
+    const ProductInterval = setInterval(() => {
+      getProducts();
+    }, 5 * minute);
+    return () => {
+      clearInterval(ProductInterval);
+    };
   }, []);
 
   const { isTablet, isMobile } = props;
