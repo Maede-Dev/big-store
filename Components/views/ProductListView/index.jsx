@@ -14,6 +14,7 @@ const ProductListView = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState();
+
   const getProducts = async () => {
     setLoading(true);
     await axios
@@ -28,7 +29,11 @@ const ProductListView = () => {
   }, []);
 
   useEffect(() => {
-    console.log(filters);
+    console.log(
+      products.filter((product) => {
+        console.log(product.price >= 160);
+      })
+    );
     setProducts(products);
   }, [filters]);
 

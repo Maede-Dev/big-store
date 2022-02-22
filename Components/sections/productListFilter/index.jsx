@@ -26,14 +26,13 @@ const ProductListFilter = ({ setFilters , setVisible }) => {
         <Form
           {...layout}
           form={formRef}
-          name="nest-messages"
           onFinish={onFinish}
         >
-          <Form.Item name="name" label="Name">
+          <Form.Item name="brand" label="Brand">
             <Input />
           </Form.Item>
 
-          <Form.Item name="price" label="Price">
+          <Form.Item name="price" label="Price From">
             <Input />
           </Form.Item>
 
