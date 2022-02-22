@@ -10,7 +10,7 @@ const layout = {
     span: 24,
   },
 };
-const ProductListFilter = ({ setFilters , setVisible }) => {
+const ProductListFilter = ({ setFilters, setVisible }) => {
   const [formRef] = Form.useForm();
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +26,7 @@ const ProductListFilter = ({ setFilters , setVisible }) => {
         <Form
           {...layout}
           form={formRef}
+          initialValues={{ brand: "", price: 0 }}
           onFinish={onFinish}
         >
           <Form.Item name="brand" label="Brand">

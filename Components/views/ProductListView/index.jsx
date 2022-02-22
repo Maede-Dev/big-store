@@ -33,12 +33,15 @@ const ProductListView = () => {
   }, []);
 
   useEffect(() => {
-    console.log(filters);
-    setFilteredProduct(
-      products?.filter((product) => {
-        return product?.price >= parseInt(filters?.price);
-      })
-    );
+    let filteredPrice = products?.filter((product) => {
+      return product?.price >= parseInt(filters?.price);
+    });
+
+    let filteredBrand = products?.filter((product) => {
+      return product?.name?.includes(filters?.brand);
+    });
+
+    setFilteredProduct(filteredPrice.concat(filteredBrand));
   }, [filters]);
 
   return (
