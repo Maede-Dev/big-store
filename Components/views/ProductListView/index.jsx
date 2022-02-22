@@ -12,6 +12,7 @@ const ProductListView = () => {
   const [page, setPage] = useState(1);
   const [visible, setVisible] = useState();
   const [products, setProducts] = useState([]);
+  const [filteredProduct, setFilteredProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState();
 
@@ -19,7 +20,10 @@ const ProductListView = () => {
     setLoading(true);
     await axios
       .get("http://localhost:1337/products")
-      .then((res) => setProducts(res.data))
+      .then((res) => {
+        setProducts(res.data);
+        setFilteredProduct(res.data);
+      })
       .catch((error) => console.log(error));
     setLoading(false);
   };
@@ -29,19 +33,19 @@ const ProductListView = () => {
   }, []);
 
   useEffect(() => {
-    console.log(
-      products.filter((product) => {
-        console.log(product.price >= 160);
+    console.log(filters);
+    setFilteredProduct(
+      products?.filter((product) => {
+        return product?.price >= parseInt(filters?.price);
       })
     );
-    setProducts(products);
   }, [filters]);
 
   return (
     <Spin spinning={loading}>
       <Row className={style.cardList_container} justify="space-around">
-        {products?.length > 0 ? (
-          products?.slice(0, pageSize * page)?.map((node) => (
+        {filteredProduct?.length > 0 ? (
+          filteredProduct?.slice(0, pageSize * page)?.map((node) => (
             <Col key={node.id} xs={24} sm={10} md={7} lg={7} xl={5}>
               <CardItem
                 images={node.images}
@@ -59,11 +63,12 @@ const ProductListView = () => {
       </Row>
 
       {/* if total(products length) is more/equal than page*pageSize then ... */}
-      {products?.length > 9 && products.length >= page * pageSize && (
-        <div className={style.showMore} onClick={() => setPage(page + 1)}>
-          show more
-        </div>
-      )}
+      {filteredProduct?.length > 9 &&
+        filteredProduct.length >= page * pageSize && (
+          <div className={style.showMore} onClick={() => setPage(page + 1)}>
+            show more
+          </div>
+        )}
 
       <Button onClick={() => setVisible(true)} className={style.showDrawer}>
         <FilterOutlined />
