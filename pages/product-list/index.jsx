@@ -1,23 +1,24 @@
 import { Col, Row, Spin } from "antd";
 import React, { useEffect, useState } from "react";
-
+import { Drawer, Button } from "antd";
 import CardItem from "../../Components/Card";
 import axios from "axios";
 import style from "./productList.module.scss";
-
+import { FilterOutlined } from "@ant-design/icons";
 const ProductList = () => {
   const pageSize = 7;
   const [page, setPage] = useState(1);
+  const [visible, setVisible] = useState();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  console.log("products length", products.length);
-
   const getProducts = async () => {
+    setLoading(true);
     await axios
       .get("http://localhost:1337/products")
       .then((res) => setProducts(res.data))
       .catch((error) => console.log(error));
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -51,6 +52,21 @@ const ProductList = () => {
           show more
         </div>
       )}
+
+      <Button onClick={() => setVisible(true)} className={style.showDrawer}>
+        <FilterOutlined />
+        Filter
+      </Button>
+      <Drawer
+        title="Products Filter"
+        placement="left"
+        onClose={() => setVisible(false)}
+        visible={visible}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
     </Spin>
   );
 };
