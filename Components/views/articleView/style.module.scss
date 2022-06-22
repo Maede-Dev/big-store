@@ -1,0 +1,15 @@
+.container{
+  margin-top: 80px;
+  .articleList{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .pagination{
+    display: flex;
+    align-items: center;
+   margin-left: 43.5%;
+  }
+}
+

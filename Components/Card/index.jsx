@@ -1,12 +1,12 @@
-import { Button, message, Tooltip } from "antd";
+import { Button, Tooltip, message } from "antd";
 import { Carousel, Col, Image, Row } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 
 import Link from "next/link";
 import { PlusOutlined } from "@ant-design/icons";
 import React from "react";
-import style from "./card.module.scss";
 import { setBasketItem } from "../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import style from "./card.module.scss";
 import { useRouter } from "next/dist/client/router";
 
 const CardItem = (props) => {
@@ -40,7 +40,7 @@ const CardItem = (props) => {
         ))}
       </Carousel>
       
-      <Link href={`/${category}/${id}`}>
+      <Link href={`/products/${category}/${id}`}>
         <Row className={style.products_body} align="middle">
           <Col span={24}>
             <h3 className={style.products_name}>{name}</h3>
