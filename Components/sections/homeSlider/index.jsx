@@ -13,7 +13,8 @@ const HomeSlider = (props) => {
   const getProducts = async () => {
     await axios
       .get("http://localhost:1337/products")
-      .then((res) => setProductsList(res.data));
+      .then((res) => setProductsList(res.data))
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
