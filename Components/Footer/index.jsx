@@ -19,7 +19,7 @@ const FooterCustom = () => {
         justify="space-between"
       >
         <Col xs={22} lg={7} className={style.page_name}>
-          <span>B I G - S T O R E</span>
+          <span>H O N E Y - S H O P</span>
         </Col>
         <Col xs={22} lg={7} className={style.text_box}>
           <h2>Comented to customers</h2>
@@ -53,7 +53,7 @@ const FooterCustom = () => {
           </Link>
         </Col>
         <Col className={style.copy_right} span={24}>
-          bigStore.com © 2021 - 2021 All rights reserved
+          HoneyShop © 2021 - 2021 All rights reserved
         </Col>
       </Row>
     </>

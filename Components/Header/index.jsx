@@ -67,13 +67,7 @@ const Header = (props) => {
       <Row className={style.header} justify="space-around" align="middle">
         <Col span={6}>
           <Link href="/">
-            <Image
-              className={style.header_logo}
-              alt="header logo"
-              src="/Images/Logo.png"
-              width={190}
-              height={50}
-            />
+            <div className={style.logo}>HoneyShop</div>
           </Link>
         </Col>
         <Col span={11} className={style.header_menu}>

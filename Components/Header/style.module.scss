@@ -6,8 +6,10 @@
   position: fixed;
   top: 0;
   z-index: 99;
-  .header_logo {
-    cursor: pointer;
+  .logo {
+   font-size: 35px;
+   font-weight: 900;
+   cursor: pointer;
   }
   .header_menu {
     display: flex;
