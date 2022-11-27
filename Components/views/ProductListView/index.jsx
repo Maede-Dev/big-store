@@ -31,7 +31,7 @@ const ProductListView = () => {
   useEffect(() => {
     console.log(
       products.filter((product) => {
-        console.log(product.price >= 160);
+        product.price >= 160;
       })
     );
     setProducts(products);
